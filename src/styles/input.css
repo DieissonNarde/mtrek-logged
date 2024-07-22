@@ -1,0 +1,38 @@
+@import "./utils.css";
+@import "./styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #83217c;
+  --bg-secundary: #a32d9b;
+  --ecommerce-color: #f2981e;
+  --energy-color: #5f7336;
+}
+
+:root {
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply h-screen overflow-y-hidden;
+}
+
+::-webkit-scrollbar {
+  width: 16px; /* Largura da scrollbar vertical */
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white rounded shadow-md;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-[#800080] to-[#FFCCFF] rounded-lg border-4 border-white border-solid;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gradient-to-b from-[#660066] to-[#FF99FF];
+}

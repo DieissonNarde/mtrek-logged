@@ -1,0 +1,71 @@
+.wrapper {
+  @apply grid max-w-[2560px] w-full mx-auto pl-8 relative;
+  grid-template-columns: 23% 1fr;
+}
+
+/* Estilo geral das abas */
+.scroll-content {
+  @apply overflow-y-scroll;
+  height: calc(100vh - 112px);
+}
+
+.tab {
+  @apply flex flex-col gap-8 max-w-[1202.66px] px-8 py-6;
+}
+
+/* Estilo geral da barra de navegação */
+.navegation {
+  @apply flex items-center gap-3 h-[112px] bg-[var(--bg-secundary)] py-4 px-10 shadow-lg 
+  absolute top-[-112px] right-0 w-3/4 z-[2];
+  max-width: calc(2560px - 640px);
+}
+
+.header {
+  @apply flex items-center h-[112px] max-w-[2560px] mx-auto relative;
+}
+
+.avatar {
+  @apply flex items-center gap-8 bg-[var(--bg-primary)] w-[25%] h-full py-4 px-10 shadow-lg text-white font-medium;
+  z-index: 1;
+}
+
+.menu {
+  @apply pr-3 py-5 overflow-y-scroll;
+  height: calc(100vh - 112px);
+}
+.menu__list {
+  @apply flex flex-col justify-center gap-0;
+}
+
+.menu__list__item {
+  @apply mb-3;
+}
+
+.menu__list__item__link {
+  @apply flex items-center gap-1 w-fit;
+}
+
+.hr {
+  @apply mt-3 h-[2px] bg-[#C8C8C8] max-w-[216px];
+  border: none;
+}
+
+.menu__footer {
+  @apply flex flex-col items-center justify-center;
+}
+
+.menu__footer__logo {
+  @apply w-[80%] h-auto;
+}
+
+.menu__footer__social {
+  @apply flex flex-col items-center justify-center gap-1;
+}
+
+.menu__footer__social__icons {
+  @apply flex items-center gap-2;
+
+  & > a {
+    @apply w-12 h-12;
+  }
+}

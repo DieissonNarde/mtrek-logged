@@ -1,0 +1,20 @@
+/* Classes e estilos utilitários*/
+
+/* Titulos */
+.title-big {
+  @apply text-2xl font-bold text-white;
+}
+
+.title,
+.title-black {
+  @apply text-xl;
+}
+
+.title-fblack {
+  @apply font-black text-white;
+}
+
+/* Seta */
+.arrow {
+  @apply w-7 h-7;
+}
