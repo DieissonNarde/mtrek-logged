@@ -45,6 +45,10 @@
   @apply flex items-center gap-1 w-fit;
 }
 
+.menu__list__item__icon {
+  @apply w-[32px] h-[32px];
+}
+
 .hr {
   @apply mt-3 h-[2px] bg-[#C8C8C8] max-w-[216px];
   border: none;
