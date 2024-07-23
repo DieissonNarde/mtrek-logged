@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Mtrek</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="./styles/output.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<style>
+  :root {
+    --bg-primary: #83217c;
+    --bg-secundary: #a32d9b;
+    --ecommerce-color: #f2981e;
+    --energy-color: #5f7336;
+  }
+
+  .bg-primary {
+    background: #83217c;
+  }
+</style>
+
+<body>
+  <div class="bg-red-100 rounded-3xl shadow-md m-4">
+    <div class="bg-primary px-10 text-white font-black rounded-t-3xl py-4">
+      <h1 style="font-size: 22px">
+        Carregue o Recibo de Pagamento da sua conta de Energia
+      </h1>
+    </div>
+    <div class="px-10 py-4">
+      <div class="py-3">
+        <p>
+          Para garantir que você possa começar a economizar e aproveitar todos
+          os benefícios da Mtrek, por favor, carregue o recibo a cada pagamento
+          da sua conta de energia, todos os meses. Isso nos ajudará a validar
+          suas informações e ajustar nossos serviços para oferecer a melhor
+          experiência possível. É rápido, fácil e você estará um passo mais
+          perto de desfrutar de energia limpa e sustentável com descontos
+          incríveis!
+        </p>
+      </div>
+      <div>
+        <form id="reciboForm" action="#" method="post" enctype="multipart/form-data">
+<div class="mb-4">
+  <label for="data_envio" class="block font-bold text-black size-4">Data de Envio</label>
+  <input style="background: #D9D9D9;" type="date" id="data_envio" name="data_envio" required
+    class="mt-3 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-500" />
+</div>
+
+
+          <div class="mb-4">
+            <label for="distribuidora" class="block font-bold text-black size-4">Distribuidora</label>
+            <select style="background: #D9D9D9;" id="distribuidora" name="distribuidora" required
+              class="mt-3 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-500">
+              <option value="">Selecionar a distribuidora de energia</option>
+              <option value="distribuidora1">Distribuidora 1</option>
+              <option value="distribuidora2">Distribuidora 2</option>
+              <option value="distribuidora3">Distribuidora 3</option>
+              <!-- Adicione mais opções conforme necessário -->
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <div class="relative h-8">
+              <input type="file" id="recibo" name="recibo" accept=".pdf,.jpg,.png,.doc" required class="sr-only"
+                aria-label="Carregar Recibo" onchange="updateFileName(this)" />
+              <label style="font-size: 18px; background: #D9D9D9;" for="recibo" id="file-btn"
+                class="absolute inset-0 cursor-pointer flex items-center justify-center border-gray-300 hover:border-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500 rounded-3xl font-black">
+                <span id="file-btn-text">Carregar Recibo</span>
+              </label>
+            </div>
+            <p class="font-black" style="font-size: 15px;">
+              <span id="file-name-placeholder">Tipos permitidos: .jpg, .png, .pdf, .doc</span>
+            </p>
+          </div>
+
+          <button type="submit" id="enviarReciboBtn" disabled style="font-size: 18px; background: #D9D9D9;"
+            class="w-full bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 rounded-3xl font-black">
+            Enviar Recibo
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  document.getElementById('recibo').addEventListener('change', function () {
+    const fileInput = document.getElementById('recibo');
+    const fileNamePlaceholder = document.getElementById('file-name-placeholder');
+
+    if (fileInput.files.length > 0) {
+      fileNamePlaceholder.textContent = fileInput.files[0].name;
+    } else {
+      fileNamePlaceholder.textContent = '.jpg, .png, .pdf, .doc'; // Default text if no file is selected
+    }
+  });
+  function updateFileName(input) {
+    const file = input.files[0];
+    const label = document.getElementById('file-btn');
+    const labelText = document.getElementById('file-btn-text');
+
+    if (file) {
+      labelText.textContent = 'Recibo carregado';
+      label.style.background = '#5F7336';
+    } else {
+      labelText.textContent = 'Carregar Recibo';
+      label.style.background = '#D9D9D9';
+    }
+  }
+  // Função para verificar se todos os campos estão preenchidos
+  function checkForm() {
+    const dataEnvio = document.getElementById('data_envio').value.trim();
+    const distribuidora = document.getElementById('distribuidora').value.trim();
+    const recibo = document.getElementById('recibo').files.length > 0;
+
+    // Condição para habilitar o botão e alterar o estilo
+    if (dataEnvio !== '' && distribuidora !== '' && recibo) {
+      document.getElementById('enviarReciboBtn').disabled = false;
+      document.getElementById('enviarReciboBtn').style.background = '#5F7336'; // Altera para verde
+    } else {
+      document.getElementById('enviarReciboBtn').disabled = true;
+      document.getElementById('enviarReciboBtn').style.background = '#D9D9D9'; // Mantém o estilo padrão
+    }
+  }
+
+  // Adiciona listeners para os campos do formulário
+  document.getElementById('data_envio').addEventListener('input', checkForm);
+  document.getElementById('distribuidora').addEventListener('change', checkForm);
+  document.getElementById('recibo').addEventListener('change', function () {
+    checkForm();
+    updateFileName(this);
+  });
+
+  // Função para atualizar o nome do arquivo exibido
+  function updateFileName(input) {
+    const file = input.files[0];
+    const label = document.getElementById('file-btn');
+    const labelText = document.getElementById('file-btn-text');
+
+    if (file) {
+      labelText.textContent = 'Recibo carregado';
+      label.style.background = '#5F7336'; // Altera para verde
+    } else {
+      labelText.textContent = 'Carregar Recibo';
+      label.style.background = '#D9D9D9';
+    }
+  }
+
+</script>
+
+</html>
