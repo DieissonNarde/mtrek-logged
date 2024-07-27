@@ -1,25 +1,13 @@
 .wrapper {
-  @apply grid max-w-[2560px] w-full mx-auto pl-8 relative;
-  grid-template-columns: 23% 1fr;
+  @apply grid max-w-[2560px] grid-cols-1 w-full mx-auto pl-0 lg:pl-8 relative;
+  
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 23% 1fr;
+  }
 }
 
-/* Estilo geral das abas */
-.scroll-content {
-  @apply overflow-y-scroll;
-  height: calc(100vh - 112px);
-}
-
-.tab {
-  @apply flex flex-col gap-8 max-w-[1202.66px] px-8 py-6;
-}
 
 /* Estilo geral da barra de navegação */
-.navegation {
-  @apply flex items-center gap-3 h-[112px] bg-[var(--bg-secundary)] py-4 px-10 shadow-lg 
-  absolute top-[-112px] right-0 w-3/4 z-[2];
-  max-width: calc(2560px - 640px);
-}
-
 .header {
   @apply flex items-center h-[112px] max-w-[2560px] mx-auto relative;
 }
@@ -73,3 +61,42 @@
     @apply w-12 h-12;
   }
 }
+
+.tab__navegation {
+  @apply flex items-center gap-3 h-[112px] bg-[var(--bg-secundary)] py-4 px-10 shadow-lg 
+  absolute top-[-112px] right-0 z-[2] w-full lg:w-3/4;
+
+  @media screen and (min-width: 1024px) {
+    max-width: calc(2560px - 640px);
+  }
+}
+
+
+.navegation__title {
+  @apply font-bold text-xl lg:text-2xl text-white;
+}
+
+.scroll-content {
+  @apply overflow-y-auto lg:overflow-y-scroll h-full;
+
+  @media screen and (min-width: 1024px) {
+    height: calc(100vh - 112px - 112px);
+  }
+}
+
+.tab {
+  @apply flex flex-col gap-8 max-w-[1202.66px] px-4 py-3 lg:px-8 lg:py-6;
+}
+
+.tab__content {
+  @apply flex flex-col lg:flex-row md:gap-4 gap-y-8 w-full;
+}
+
+.tab__content__video {
+  @apply w-full lg:w-[45%];
+}
+
+.tab__content__form {
+  @apply w-full lg:w-[55%];
+}
+

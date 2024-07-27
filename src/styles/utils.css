@@ -18,3 +18,17 @@
 .arrow {
   @apply w-7 h-7;
 }
+
+/* Botão */
+.button {
+  @apply bg-[var(--bg-primary)] text-white font-semibold md:font-black py-1 w-full rounded-lg hover:bg-[var(--bg-secundary)] transition-all duration-200 text-sm md:text-base;
+}
+
+.button-green {
+  @apply bg-[#ABFF00] border border-transparent hover:bg-transparent hover:border-[#ABFF00];
+}
+
+.article__header {
+  @apply w-full bg-[var(--bg-primary)] py-5 px-5;
+  border-radius: 20px 20px 0 0;
+}
