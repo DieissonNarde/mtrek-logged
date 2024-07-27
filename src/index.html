@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script src="scripts/main.js"></script>
   </head>
 
   <body>
@@ -36,7 +37,7 @@
           <p class="id">ID: 143</p>
         </div>
       </div>
-    </header>
+    </header> 
     <div class="wrapper">
       <aside class="hidden lg:block">
         <nav class="menu">
@@ -46,7 +47,7 @@
                 <img
                   src="/src/assets/images/icons/meu-negocio.png"
                   alt="ícone home"
-                  class="menu__list__item__icon"
+                   class="menu__list__item__icon"
                 />
                 <p class="menu__list__item__text">Meu Negócio</p>
               </a>
@@ -148,7 +149,7 @@
                 Mercado Livre de Energia
               </h2>
               <li class="menu__list__item">
-                <a href="#" class="menu__list__item__link">
+                <a href="#" class="menu__list__item__link" data-target="cadastro" aria-controls="cadastro">
                   <img
                     src="/src/assets/images/icons/cadastro.png"
                     alt="ícone estatísticas"
@@ -158,7 +159,7 @@
                 </a>
               </li>
               <li class="menu__list__item">
-                <a href="#" class="menu__list__item__link">
+                <a href="informe-de-recibo" class="menu__list__item__link" data-target="informe-de-recibo" aria-controls="informe-de-recibo">
                   <img
                     src="/src/assets/images/icons/informe-de-recibo.png"
                     alt="ícone estatísticas"
@@ -169,7 +170,7 @@
                 <hr class="hr" />
               </li>
               <li class="menu__list__item">
-                <a href="#" class="menu__list__item__link">
+                <a href="#" class="menu__list__item__link" data-target="conta-bancaria" aria-controls="conta-bancaria">
                   <img
                     src="/src/assets/images/icons/conta-bancaria.png"
                     alt="ícone estatísticas"
@@ -179,7 +180,7 @@
                 </a>
               </li>
               <li class="menu__list__item">
-                <a href="#" class="menu__list__item__link">
+                <a href="#" class="menu__list__item__link" data-target="regulamento" aria-controls="regulamento">
                   <img
                     src="/src/assets/images/icons/regulamento.png"
                     alt="ícone estatísticas"
@@ -190,7 +191,7 @@
                 <hr class="hr" />
               </li>
               <li class="menu__list__item">
-                <a href="#" class="menu__list__item__link">
+                <a href="#" class="menu__list__item__link" data-target="material-de-marketing" aria-controls="material-de-marketing">
                   <img
                     src="/src/assets/images/icons/material-de-marketing.png"
                     alt="ícone estatísticas"
@@ -200,7 +201,7 @@
                 </a>
               </li>
               <li class="menu__list__item">
-                <a href="#" class="menu__list__item__link">
+                <a href="#" class="menu__list__item__link" data-target="treinamento" aria-controls="treinamento">
                   <img
                     src="/src/assets/images/icons/treinamento.png"
                     alt="ícone estatísticas"
@@ -413,7 +414,7 @@
         </div>
       </main>
 
-      <main class="route" id="info-recibo">
+      <main class="route hidden" id="informe-de-recibo">
         <div class="tab__navegation">
           <!-- Adicionar navegação das rotas aqui -->
           <h2 class="navegation__title">Mercado Livre de Energia</h2>
@@ -450,12 +451,12 @@
                   <form id="reciboForm" onsubmit="submitForm(event)" enctype="multipart/form-data" class="w-full lg:w-1/2 flex flex-col gap-3">
                     <div class="flex flex-col gap-3">
                       <label for="data_envio" class="font-semibold ">Data de Envio</label>
-                      <input type="date" id="data_envio" name="data_envio" required class="focus:outline-none focus:gray focus:border-indigo-500 text-[#AEAEAE]"/>
+                      <input type="date" id="data_envio" name="data_envio" required class=" text-[#AEAEAE]"/>
                     </div>
           
                     <div class="flex flex-col gap-3">
                       <label for="distribuidora" class="font-semibold">Distribuidora</label>
-                      <select id="distribuidora" name="distribuidora" required class="focus:outline-none focus:gray focus:border-indigo-500"
+                      <select id="distribuidora" name="distribuidora" required 
                         >
                         <option value="">Selecionar a distribuidora de energia</option>
                         <option value="distribuidora1">Distribuidora 1</option>
@@ -513,9 +514,9 @@
                     <li class="flex items-center"><img src="assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
                         alt="Ícone de aprovação">Benefícios Exclusivos</li>
                   </ul>
-                  <a href="#" class="button button-green block w-32 py-1 font-black rounded-md text-center transition duration-300 ease-in-out">
+                  <a href="#" class="button button-green block w-32 py-1 font-black rounded-md text-black bg-green-500 hover:text-white transition duration-300 ease-in-out text-center">
                     Indicar
-                </a>
+                  </a>
                 </div>
               </div>
             </section>
