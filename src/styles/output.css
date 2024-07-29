@@ -137,18 +137,6 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   z-index: 1;
 }
-@media (max-width: 1190px) { 
-  .avatar .avatar_profile{
-    width: 70px;
-    height: 70px;
-  }
-  .avatar {
-    gap: 1rem;
-    
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
 
 .menu {
   overflow-y: scroll;
@@ -1553,20 +1541,12 @@ select {
     width: 50%;
   }
 
-  .lg\:w-\[45\%\] {
-    width: 45%;
-  }
-
   .lg\:w-\[48\%\] {
     width: 48%;
   }
 
   .lg\:flex-row {
     flex-direction: row;
-  }
-
-  .lg\:flex-col {
-    flex-direction: column;
   }
 
   .lg\:rounded-b-none {
