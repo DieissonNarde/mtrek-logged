@@ -100,3 +100,41 @@
   @apply w-full lg:w-[55%];
 }
 
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 5vh auto;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-section {
+  display: inline-block;
+  margin: 20px;
+}
+
+.modal-body img {
+  width: 150px;
+  height: 200px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.modal-section input[type="file"] {
+  display: none;
+}
+
+

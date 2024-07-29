@@ -72,4 +72,27 @@
       });
     }
   });
+
+  // Lógica do modal
+
+function openModal() {
+  document.getElementById("idModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("idModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == document.getElementById("idModal")) {
+    closeModal();
+  }
+}
+
+function submitDocuments() {
+  // Aqui você pode adicionar a lógica para submissão dos documentos
+  closeModal();
+  alert("Documentos enviados com sucesso!");
+}
+
   

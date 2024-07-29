@@ -301,11 +301,13 @@
           <main class="tab">
             <div class="tab__content__banner">
               <img
+              class="hidden lg:block"
                 src="/src/assets/images/banners/mercador-de-energia-banner-2.png"
                 alt="Banner sobre o mercado livre de energia"
               />
+              <img class="block lg:hidden" src="/src/assets/images/banners/mercado-de-energia-mobile.png" alt="Banner mobile">
             </div>
-            <div class="tab__content">
+            <div class="tab__content flex-col-reverse lg:flex-row">
               <!-- Adicionar conteúdo das rotas aqui -->
                 <div class="tab__content__video">
                   <header class="article__header">
@@ -327,92 +329,92 @@
                   <header class="article__header">
                     <h2 class="title-fblack text-lg">Faça o seu cadastro aqui</h2>
                   </header>
-                  <div
-                    class="p-5 drop-shadow-lg bg-white rounded-[0px_0px_20px_20px]"
-                  >
+                  <div class="p-5 drop-shadow-lg bg-white rounded-[0px_0px_20px_20px]">
                     <p class="text-sm font-light">
-                      Preencha com todos os dados abaixo para poder validar e
-                      ser aprovado o seu cadastro, para cameçar a receber
-                      descontos e cashaback em sua conta de energia.
+                      Preencha com todos os dados abaixo para poder validar e ser aprovado o seu cadastro, para começar a receber
+                      descontos e cashback em sua conta de energia.
                     </p>
-
-                    <form>
+                
+                    <form id="cadastroForm" onsubmit="submitCadastroForm(event)" enctype="multipart/form-data">
                       <div class="flex flex-col gap-4 mt-6">
                         <div class="flex flex-wrap sm:gap-3 gap-5 w-full">
-                          <div class="flex flex-col gap-3">
-                            <label for="nome" class="text-sm font-semibold"
-                              >Nome</label
-                            >
-                            <input
-                              type="text"
-                              id="nome"
-                              name="nome"
-                              v-model="name"
-                              placeholder="Digite o seu nome"
-                            />
+                          <div class="flex flex-col gap-3 w-full lg:w-[48%]">
+                            <label for="nome" class="text-sm font-semibold">Nome</label>
+                            <input type="text" id="nome" name="nome" v-model="name" placeholder="Digite o seu nome" />
                           </div>
-                          <div class="flex flex-col gap-3">
-                            <label for="sobrenome" class="text-sm font-semibold"
-                              >Sobrenome</label
-                            >
-                            <input
-                              type="text"
-                              id="sobrenome"
-                              name="sobrenome"
-                              v-model="sobrenome"
-                              placeholder="Digite o seu sobrenome"
-                            />
+                          <div class="flex flex-col gap-3 w-full lg:w-[48%]">
+                            <label for="sobrenome" class="text-sm font-semibold">Sobrenome</label>
+                            <input type="text" id="sobrenome" name="sobrenome" v-model="sobrenome" placeholder="Digite o seu sobrenome" />
                           </div>
                         </div>
-
+                
                         <div class="flex flex-col gap-3">
-                          <label for="estado" class="text-sm font-semibold"
-                            >Estado</label
-                          >
+                          <label for="estado" class="text-sm font-semibold">Estado</label>
                           <select class="w-full" id="estado" name="estado">
-                            <option value="" disabled selected>
-                              Selecione o seu estado
-                            </option>
+                            <option value="" disabled selected>Selecione o seu estado</option>
                             <option value="sp">São Paulo</option>
                           </select>
                         </div>
-
+                
                         <div class="flex flex-col gap-3">
-                          <label for="" class="text-sm font-semibold"
-                            >Distribuidora</label
-                          >
-
-                          <select
-                            class="w-full"
-                            id="distribuidora"
-                            name="distribuidora"
-                          >
-                            <option value="" disabled selected>
-                              Selecione a distribuidora de energia
-                            </option>
+                          <label for="" class="text-sm font-semibold">Distribuidora</label>
+                          <select class="w-full" id="distribuidora" name="distribuidora">
+                            <option value="" disabled selected>Selecione a distribuidora de energia</option>
                             <option value="">ENEL</option>
                           </select>
                         </div>
-
+                
                         <div class="flex flex-col gap-3 mt-6">
-                          <button class="button" type="button">
-                            Carregar conta de energia
-                          </button>
-
-                          <div class="block">
-                          <button class="button" type="button">
-                            Carregar documento de identidade
-                          </button>
-                            <p class="text-sm font-bold"
-                              >Tipos permitidos: .jpg, .png, .pdf, .doc</p>
+                          <div class="relative h-8">
+                            <input type="file" id="recibo" name="recibo" accept=".pdf,.jpg,.png,.doc" required class="sr-only"
+                              aria-label="Carregar Recibo" onchange="updateFileName(this)" />
+                            <label for="recibo" id="file-btn" class="button block text-center cursor-pointer">
+                              <span id="file-btn-text"> Carregar conta de energia</span>
+                            </label>
                           </div>
-
+                
+                          <div class="block">
+                            <button class="button" type="button" onclick="openModal()">Carregar documento de identidade</button>
+                            <p id="file-name-placeholder" class="text-sm font-bold">Tipos permitidos: .jpg, .png, .pdf, .doc</p>
+                          </div>
+                
                           <button class="button" type="submit">Enviar</button>
                         </div>
                       </div>
                     </form>
                   </div>
                 </div>
+                
+                <!-- Modal -->
+                <div id="idModal" class="modal">
+                  <div class="modal-content w-[90%] lg:w-[80%]">
+                  <div class="article__header flex justify-between items-center max-w-[600px] mx-auto">
+                    <h2 class="title-fblack">Carregar Documento de Identidade</h2>
+                    <span class="close cursor-pointer" onclick="closeModal()">
+                      <img src="/src/assets/images/icons/fechar.png" alt="">
+                    </span>
+                  </div>
+                    <div class="modal-body bg-[#fefefe] py-6 px-10 rounded-b-[20px]">
+                      <p class="text-sm font-light">Nos envie o seu Documento de identidade, pode ser em arquivos <b class="font-bold text-black">jpg, .png, .pdf, .doc</b></p>
+                      <div class="modal-section mt-4 mb-16">
+                        <div class="bg-[#5F7336] rounded-lg p-2 mb-4">
+                          <img src="/src/assets/images/identidade-frente.png" alt="Imagem Verso">
+                        </div>
+                        <input type="file" id="frenteDocumento" name="frenteDocumento" accept=".jpg,.png,.pdf,.doc">
+                        <label  class="button button-green bg-[#5F7336] hover:bg-[#6c833d] cursor-pointer px-3 py-1" for="frenteDocumento">Enviar Frente</label>
+                      </div>
+                      <div class="modal-section mt-4 mb-16">
+                        <div class="bg-[#5F7336] rounded-lg p-2 mb-4">
+                          <img src="/src/assets/images/identidade-frente.png" alt="Imagem Verso">
+                        </div>
+                        <input type="file" id="versoDocumento" name="versoDocumento" accept=".jpg,.png,.pdf,.doc">
+                        <label  class="button button-green bg-[#5F7336] hover:bg-[#6c833d] cursor-pointer px-3 py-1" for="versoDocumento">Enviar Verso</label>
+                      </div>
+                      <button class="button" onclick="submitDocuments()">Enviar</button>
+                    </div>
+                  </div>
+                </div>
+                
             </div>
           </main>
         </div>
@@ -519,7 +521,7 @@
                     <li class="flex items-center"><img src="assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
                         alt="Ícone de aprovação">Benefícios Exclusivos</li>
                   </ul>
-                  <a href="#" class="button button-green block w-32 py-1 font-black rounded-md text-black bg-green-500 hover:text-white transition duration-300 ease-in-out text-center">
+                  <a href="#" class="button button-green block w-32 py-1 font-black rounded-md text-black  hover:text-white transition duration-300 ease-in-out text-center">
                     Indicar
                   </a>
                 </div>
@@ -533,4 +535,5 @@
     </div>
   </body>
   <script src="scripts/info-recibo.js"></script>
+  <script src="scripts/cadastro.js"></script>
 </html>
