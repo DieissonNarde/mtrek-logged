@@ -17,7 +17,7 @@
 
   <body>
     <header class="header">
-      <div class="avatar hidden lg:flex">
+      <div class="avatar hidden lg:flex" id="header">
         <img
           src="https://github.com/Lxcier.png"
           alt="Imagem de perfil do usuário"
@@ -37,10 +37,12 @@
           </a>
           <p class="id">ID: 143</p>
         </div>
+        <img src="assets/images/icons/mostrar-menu.png" alt="arrow" width="43px" height="43px" class="arrow_header_responsive">
       </div>
     </header> 
+    <div id="overlay" class="overlay hidden"></div>
     <div class="wrapper">
-      <aside class="hidden lg:block">
+      <aside class="hidden lg:block" id="sidebar">
         <nav class="menu">
           <ul class="menu__list">
             <li class="menu__list__item">
@@ -285,6 +287,7 @@
       <main class="route hidden" id="cadastro">
         <div class="tab__navegation">
           <!-- Adicionar navegação das rotas aqui -->
+           
           <h2 class="navegation__title">Mercado Livre de Energia</h2>
           <img
               src="/src/assets/images/icons/seta-direita.png"
@@ -418,6 +421,7 @@
       <main class="route hidden" id="informe-de-recibo">
         <div class="tab__navegation">
           <!-- Adicionar navegação das rotas aqui -->
+          <img src="assets/images/icons/Menu - 257.png" alt="" class="menu_responsivo">
           <h2 class="navegation__title">Mercado Livre de Energia</h2>
           <img
               src="/src/assets/images/icons/seta-direita.png"

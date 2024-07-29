@@ -145,6 +145,79 @@
   height: calc(100vh - 112px);
 }
 
+/* Estilo para telas menores que 1024px */
+.arrow_header_responsive {
+  display: none; /* Oculta o botão por padrão */
+}
+
+/* Estilo para o overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
+  z-index: 999; /* Garante que a sobreposição fique sobre outros conteúdos */
+  display: none; /* Inicialmente oculta */
+}
+
+/* Área de overlay que deve estar visível quando a sidebar ou header está ativo */
+.overlay.active {
+  display: block;
+}
+
+/* Criação da área de sobreposição visível, considerando o header e sidebar */
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
+  z-index: 998; /* Garante que a sobreposição fique sobre o conteúdo de fundo */
+}
+
+#sidebar,
+#header {
+  z-index: 1000; /* Garante que o header e o sidebar fiquem acima do overlay */
+}
+
+@media (max-width: 1024px) {
+  .menu {
+    width: 300px; 
+    padding-left: 1.25rem;
+    position: fixed;
+    background-color: white;
+    z-index: 100;
+  }
+  #header {
+    width: 300px; 
+    padding-left: 1.25rem;
+    position: fixed;
+    background-color: var(--bg-primary);
+    z-index: 100;
+  }
+  .arrow_header_responsive {
+    cursor: pointer;
+    rotate: 180deg;
+    position: absolute;
+    left: 280px;
+    z-index: 200;
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 .menu__list {
   display: flex;
   flex-direction: column;
@@ -197,7 +270,6 @@
   justify-content: center;
   gap: 0.25rem;
 }
-
 .menu__footer__social__icons {
   display: flex;
   align-items: center;
@@ -331,6 +403,14 @@
   .tab__content__form {
     width: 55%;
   }
+}
+
+
+/*Barra de navegacao responsivo*/
+.menu_responsivo {
+  width: 35px;
+  cursor: pointer;
+
 }
 
 /* ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com*/
