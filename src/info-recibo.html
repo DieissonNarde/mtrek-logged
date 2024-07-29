@@ -53,6 +53,8 @@
         Carregue o Recibo de Pagamento da sua conta de Energia
       </h1>
     </div>
+
+    
     <div class="px-10 py-4">
       <div class="py-3">
         <p>
@@ -141,86 +143,8 @@
     </div>
   </section>
 
-  <script>
-    // Função para atualizar o nome do arquivo exibido
-    function updateFileName(input) {
-      const file = input.files[0];
-      const label = document.getElementById('file-btn');
-      const labelText = document.getElementById('file-btn-text');
 
-      if (file) {
-        labelText.textContent = 'Recibo carregado';
-        label.style.background = '#3D113A'; // Altera a cor
-        label.style.color = '#ffffff'; // Texto branco quando habilitado
-      } else {
-        labelText.textContent = 'Carregar Recibo';
-        label.style.background = '#D9D9D9';
-        label.style.color = '#000000'; // Texto preto quando não há arquivo carregado
-      }
-    }
-
-
-    // Função para verificar se todos os campos estão preenchidos
-    function checkForm() {
-      const dataEnvio = document.getElementById('data_envio').value.trim();
-      const distribuidora = document.getElementById('distribuidora').value.trim();
-      const recibo = document.getElementById('recibo').files.length > 0;
-
-      const enviarReciboBtn = document.getElementById('enviarReciboBtn');
-
-      // Condição para habilitar o botão e alterar o estilo
-      if (dataEnvio !== '' && distribuidora !== '' && recibo) {
-        enviarReciboBtn.disabled = false;
-        enviarReciboBtn.style.background = '#5F7336'; // Altera para verde
-        enviarReciboBtn.style.color = '#ffffff'; // Texto branco quando habilitado
-      } else {
-        enviarReciboBtn.disabled = true;
-        enviarReciboBtn.style.background = '#D9D9D9'; // Mantém o estilo padrão
-        enviarReciboBtn.style.color = '#000000'; // Texto preto quando desabilitado
-      }
-    }
-
-    // Adiciona listeners para os campos do formulário
-    document.getElementById('data_envio').addEventListener('input', checkForm);
-    document.getElementById('distribuidora').addEventListener('change', checkForm);
-    document.getElementById('recibo').addEventListener('change', function () {
-      checkForm();
-      updateFileName(this);
-    });
-
-
-    
-    // Função para enviar dados para o console ao invés de um backend real
-    function submitForm(event) {
-      event.preventDefault(); // Previne o envio padrão do formulário
-
-      const dataEnvio = document.getElementById('data_envio').value.trim();
-      const distribuidora = document.getElementById('distribuidora').value.trim();
-      const reciboFile = document.getElementById('recibo').files[0];
-
-      console.log("Data de Envio:", dataEnvio);
-      console.log("Distribuidora:", distribuidora);
-      console.log("Recibo:", reciboFile); // Aqui você pode ver o objeto de arquivo completo
-
-      // Limpar os campos do formulário após enviar para o console
-      document.getElementById('data_envio').value = '';
-      document.getElementById('distribuidora').value = '';
-      document.getElementById('recibo').value = ''; // Limpa o input de arquivo
-
-      // Resetar o estado dos botão 
-      document.getElementById('enviarReciboBtn').disabled = true;
-      document.getElementById('enviarReciboBtn').style.background = '#D9D9D9'; // Mantém o estilo padrão
-      document.getElementById('enviarReciboBtn').style.color = '#000000'; // Texto preto quando desabilitado
-
-
-      document.getElementById('file-btn-text').textContent = 'Carregar outro';
-      document.getElementById('file-btn').style.color = '#000000'; 
-      document.getElementById('file-btn').style.background = '#D9D9D9'; 
-    }
-
-
-  </script>
-
+  <script src="../main1.js"></script>
 </body>
 
 </html>
