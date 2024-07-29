@@ -118,6 +118,7 @@
 }
 
 .avatar {
+  position: relative;
   display: flex;
   height: 100%;
   width: 25%;
@@ -136,6 +137,18 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   z-index: 1;
 }
+@media (max-width: 1190px) { 
+  .avatar .avatar_profile{
+    width: 70px;
+    height: 70px;
+  }
+  .avatar {
+    gap: 1rem;
+    
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 .menu {
   overflow-y: scroll;
@@ -144,79 +157,6 @@
   padding-right: 0.75rem;
   height: calc(100vh - 112px);
 }
-
-/* Estilo para telas menores que 1024px */
-.arrow_header_responsive {
-  display: none; /* Oculta o botão por padrão */
-}
-
-/* Estilo para o overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
-  z-index: 999; /* Garante que a sobreposição fique sobre outros conteúdos */
-  display: none; /* Inicialmente oculta */
-}
-
-/* Área de overlay que deve estar visível quando a sidebar ou header está ativo */
-.overlay.active {
-  display: block;
-}
-
-/* Criação da área de sobreposição visível, considerando o header e sidebar */
-.overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
-  z-index: 998; /* Garante que a sobreposição fique sobre o conteúdo de fundo */
-}
-
-#sidebar,
-#header {
-  z-index: 1000; /* Garante que o header e o sidebar fiquem acima do overlay */
-}
-
-@media (max-width: 1024px) {
-  .menu {
-    width: 300px; 
-    padding-left: 1.25rem;
-    position: fixed;
-    background-color: white;
-    z-index: 100;
-  }
-  #header {
-    width: 300px; 
-    padding-left: 1.25rem;
-    position: fixed;
-    background-color: var(--bg-primary);
-    z-index: 100;
-  }
-  .arrow_header_responsive {
-    cursor: pointer;
-    rotate: 180deg;
-    position: absolute;
-    left: 280px;
-    z-index: 200;
-    display: block;
-  }
-}
-
-
-
-
-
-
-
-
-
 
 .menu__list {
   display: flex;
@@ -270,6 +210,7 @@
   justify-content: center;
   gap: 0.25rem;
 }
+
 .menu__footer__social__icons {
   display: flex;
   align-items: center;
@@ -342,12 +283,13 @@
 
 .scroll-content {
   @media screen and (min-width: 1024px) {
-    height: calc(100vh - 112px - 112px);
+    height: calc(100vh - 112px);
   }
 }
 
 .tab {
   display: flex;
+  height: 100%;
   max-width: 1202.66px;
   flex-direction: column;
   gap: 2rem;
@@ -403,14 +345,6 @@
   .tab__content__form {
     width: 55%;
   }
-}
-
-
-/*Barra de navegacao responsivo*/
-.menu_responsivo {
-  width: 35px;
-  cursor: pointer;
-
 }
 
 /* ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com*/
@@ -1083,6 +1017,10 @@ video {
   height: 1rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -1097,6 +1035,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .w-32 {
@@ -1121,6 +1063,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
 }
 
 .flex-wrap {
@@ -1209,6 +1155,11 @@ video {
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1504,6 +1455,11 @@ select {
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .focus\:border-indigo-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(99 102 241 / var(--tw-border-opacity));
@@ -1589,12 +1545,28 @@ select {
     display: flex;
   }
 
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
 
+  .lg\:w-\[45\%\] {
+    width: 45%;
+  }
+
+  .lg\:w-\[48\%\] {
+    width: 48%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
   }
 
   .lg\:rounded-b-none {
