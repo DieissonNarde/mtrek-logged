@@ -136,6 +136,18 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   z-index: 1;
 }
+@media (max-width: 1190px) { 
+  .avatar .avatar_profile{
+    width: 70px;
+    height: 70px;
+  }
+  .avatar {
+    gap: 1rem;
+    
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 .menu {
   overflow-y: scroll;
@@ -146,7 +158,8 @@
 }
 
 /* Estilo para telas menores que 1024px */
-.arrow_header_responsive {
+.arrow_header_responsive,
+.menu_responsivo {
   display: none; /* Oculta o botão por padrão */
 }
 
@@ -183,8 +196,7 @@
 #header {
   z-index: 1000; /* Garante que o header e o sidebar fiquem acima do overlay */
 }
-
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .menu {
     width: 300px; 
     padding-left: 1.25rem;
@@ -206,6 +218,9 @@
     position: absolute;
     left: 280px;
     z-index: 200;
+    display: block;
+  }
+  .menu_responsivo {
     display: block;
   }
 }
