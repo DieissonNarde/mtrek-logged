@@ -66,7 +66,7 @@
 }
 
 .tab__navegation {
-  @apply flex items-center justify-between h-[112px] bg-[var(--bg-secundary)] py-4 pr-10 pl-[340px] shadow-lg 
+  @apply flex items-center justify-between h-[112px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] shadow-lg 
   absolute top-[-112px] right-0 z-[2] w-full;
 
 }
