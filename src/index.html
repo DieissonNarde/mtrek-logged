@@ -347,52 +347,52 @@
                     </p>
                 
                     <form id="cadastroForm" onsubmit="submitCadastroForm(event)" enctype="multipart/form-data">
+                      <!-- Campos do formulário -->
                       <div class="flex flex-col gap-4 mt-6">
-                        <div class="flex flex-wrap sm:gap-3 gap-5 w-full">
-                          <div class="flex flex-col gap-3 w-full lg:w-[48%]">
-                            <label for="nome" class="text-sm font-semibold">Nome</label>
-                            <input type="text" id="nome" name="nome" v-model="name" placeholder="Digite o seu nome" />
+                          <!-- Campos Nome e Sobrenome -->
+                          <div class="flex flex-wrap sm:gap-3 gap-5 w-full">
+                              <div class="flex flex-col gap-3 w-full lg:w-[48%]">
+                                  <label for="nome" class="text-sm font-semibold">Nome</label>
+                                  <input type="text" id="nome" name="nome" v-model="name" placeholder="Digite o seu nome" />
+                              </div>
+                              <div class="flex flex-col gap-3 w-full lg:w-[48%]">
+                                  <label for="sobrenome" class="text-sm font-semibold">Sobrenome</label>
+                                  <input type="text" id="sobrenome" name="sobrenome" v-model="sobrenome" placeholder="Digite o seu sobrenome" />
+                              </div>
                           </div>
-                          <div class="flex flex-col gap-3 w-full lg:w-[48%]">
-                            <label for="sobrenome" class="text-sm font-semibold">Sobrenome</label>
-                            <input type="text" id="sobrenome" name="sobrenome" v-model="sobrenome" placeholder="Digite o seu sobrenome" />
+                          <!-- Estado e Distribuidora -->
+                          <div class="flex flex-col gap-3">
+                              <label for="estado" class="text-sm font-semibold">Estado</label>
+                              <select class="w-full" id="estado" name="estado">
+                                  <option value="" disabled selected>Selecione o seu estado</option>
+                                  <option value="sp">São Paulo</option>
+                              </select>
                           </div>
-                        </div>
-                
-                        <div class="flex flex-col gap-3">
-                          <label for="estado" class="text-sm font-semibold">Estado</label>
-                          <select class="w-full" id="estado" name="estado">
-                            <option value="" disabled selected>Selecione o seu estado</option>
-                            <option value="sp">São Paulo</option>
-                          </select>
-                        </div>
-                
-                        <div class="flex flex-col gap-3">
-                          <label for="" class="text-sm font-semibold">Distribuidora</label>
-                          <select class="w-full" id="distribuidora" name="distribuidora">
-                            <option value="" disabled selected>Selecione a distribuidora de energia</option>
-                            <option value="">ENEL</option>
-                          </select>
-                        </div>
-                
-                        <div class="flex flex-col gap-3 mt-6">
-                          <div class="relative h-8">
-                            <input type="file" id="recibo" name="recibo" accept=".pdf,.jpg,.png,.doc" required class="sr-only"
-                              aria-label="Carregar Recibo" onchange="updateFileName(this)" />
-                            <label for="recibo" id="file-btn" class="button block text-center cursor-pointer">
-                              <span id="file-btn-text"> Carregar conta de energia</span>
-                            </label>
+                          <div class="flex flex-col gap-3">
+                              <label for="distribuidora" class="text-sm font-semibold">Distribuidora</label>
+                              <select class="w-full" id="distribuidora" name="distribuidora">
+                                  <option value="" disabled selected>Selecione a distribuidora de energia</option>
+                                  <option value="">ENEL</option>
+                              </select>
                           </div>
-                
-                          <div class="block">
-                            <button class="button" type="button" onclick="openModal()">Carregar documento de identidade</button>
-                            <p id="file-name-placeholder" class="text-sm font-bold">Tipos permitidos: .jpg, .png, .pdf, .doc</p>
+                          <!-- Recibo e Documento de Identidade -->
+                          <div class="flex flex-col gap-3 mt-6">
+                              <div class="relative h-8">
+                                  <input type="file" id="cadastro-recibo" name="recibo" accept=".pdf,.jpg,.png,.doc" required class="sr-only"
+                                      aria-label="Carregar Recibo" onchange="updateCadastroFileName(this)" />
+                                  <label for="cadastro-recibo" id="cadastro-file-btn" class="button block text-center cursor-pointer">
+                                      <span id="cadastro-file-btn-text"> Carregar conta de energia</span>
+                                  </label>
+                              </div>
+                              <div class="block">
+                                  <button class="button" type="button" onclick="openModal()">Carregar documento de identidade</button>
+                                  <p id="cadastro-file-name-placeholder" class="text-sm font-bold">Tipos permitidos: .jpg, .png, .pdf, .doc</p>
+                              </div>
+                              <button class="button" type="submit" id="cadastro-enviarBtn">Enviar</button>
                           </div>
-                
-                          <button class="button" type="submit">Enviar</button>
-                        </div>
                       </div>
-                    </form>
+                  </form>
+                  
                   </div>
                 </div>
                 
@@ -477,43 +477,40 @@
                 </p>
 
                 <div class="flex gap-3 justify-between mt-6">
-                  <form id="reciboForm" onsubmit="submitForm(event)" enctype="multipart/form-data" class="w-full lg:w-1/2 flex flex-col gap-3">
+                  <form id="reciboForm" onsubmit="submitReciboForm(event)" enctype="multipart/form-data" class="w-full lg:w-1/2 flex flex-col gap-3">
+                    <!-- Data de Envio e Distribuidora -->
                     <div class="flex flex-col gap-3">
-                      <label for="data_envio" class="font-semibold ">Data de Envio</label>
-                      <input type="date" id="data_envio" name="data_envio" required class=" text-[#AEAEAE]"/>
+                        <label for="data_envio" class="font-semibold ">Data de Envio</label>
+                        <input type="date" id="data_envio" name="data_envio" required class=" text-[#AEAEAE]"/>
                     </div>
-          
                     <div class="flex flex-col gap-3">
-                      <label for="distribuidora" class="font-semibold">Distribuidora</label>
-                      <select id="distribuidora" name="distribuidora" required 
-                        >
-                        <option value="">Selecionar a distribuidora de energia</option>
-                        <option value="distribuidora1">Distribuidora 1</option>
-                        <option value="distribuidora2">Distribuidora 2</option>
-                        <option value="distribuidora3">Distribuidora 3</option>
-                        <!-- Adicione mais opções conforme necessário -->
-                      </select>
+                        <label for="recibo-distribuidora" class="font-semibold">Distribuidora</label>
+                        <select id="recibo-distribuidora" name="distribuidora" required>
+                            <option value="">Selecionar a distribuidora de energia</option>
+                            <option value="distribuidora1">Distribuidora 1</option>
+                            <option value="distribuidora2">Distribuidora 2</option>
+                            <option value="distribuidora3">Distribuidora 3</option>
+                        </select>
                     </div>
-          
+                    <!-- Recibo -->
                     <div class="mb-4">
-                      <div class="relative h-8">
-                        <input type="file" id="recibo" name="recibo" accept=".pdf,.jpg,.png,.doc" required class="sr-only"
-                          aria-label="Carregar Recibo" onchange="updateFileName(this)" />
-                        <label for="recibo" id="file-btn"
-                          class="button block text-center cursor-pointer">
-                          <span id="file-btn-text">Carregar Recibo</span>
-                        </label>
-                      </div>
-                      <p class="text-sm font-bold">
-                        <span id="file-name-placeholder">Tipos permitidos: .jpg, .png, .pdf, .doc</span>
-                      </p>
+                        <div class="relative h-8">
+                            <input type="file" id="recibo-recibo" name="recibo" accept=".pdf,.jpg,.png,.doc" required class="sr-only"
+                                aria-label="Carregar Recibo" onchange="updateReciboFileName(this)" />
+                            <label for="recibo-recibo" id="recibo-file-btn" class="button block text-center cursor-pointer">
+                                <span id="recibo-file-btn-text">Carregar Recibo</span>
+                            </label>
+                        </div>
+                        <p class="text-sm font-bold">
+                            <span id="recibo-file-name-placeholder">Tipos permitidos: .jpg, .png, .pdf, .doc</span>
+                        </p>
                     </div>
-          
-                    <button type="submit" id="enviarReciboBtn"  style="background: #D9D9D9;"
-                    class="w-full bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 rounded-3xl font-black ">
-                    Enviar Recibo
-                  </button>
-                  </form>
+                    <button type="submit" id="enviarReciboBtn" style="background: #D9D9D9;"
+                        class="w-full bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 rounded-3xl font-black ">
+                        Enviar Recibo
+                    </button>
+                </form>
+                
           
                   <img class="hidden lg:block mr-10" src="assets/images/recibo.png" alt="Recibo">
                 </div>
