@@ -142,7 +142,6 @@ function submitDocuments() {
     }, 2000); // Ajuste o tempo de simulação se necessário
 }
 
-
 // Fecha o modal se clicar fora dele
 window.onclick = function (event) {
     if (event.target == document.getElementById("idModal")) {
