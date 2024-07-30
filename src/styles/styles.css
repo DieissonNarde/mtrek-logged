@@ -127,13 +127,6 @@
   margin: 20px;
 }
 
-.modal-body img {
-  width: 150px;
-  height: 200px;
-  display: block;
-  margin: 0 auto 10px;
-}
-
 .modal-section input[type="file"] {
   display: none;
 }
