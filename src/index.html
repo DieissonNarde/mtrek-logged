@@ -37,7 +37,7 @@
           </a>
           <p class="id">ID: 143</p>
         </div>
-        <img src="assets/images/icons/mostrar-menu.png" alt="arrow" width="43px" height="43px" class="arrow_header_responsive">
+        <img src="assets/images/icons/mostrar-menu.png" alt="arrow" width="43px" height="43px" class="arrow_header_responsive block lg:hidden">
       </div>
     </header> 
     <div id="overlay" class="overlay hidden"></div>
@@ -287,19 +287,30 @@
       <main class="route hidden" id="cadastro">
         <div class="tab__navegation">
           <!-- Adicionar navegação das rotas aqui -->
-          <img src="assets/images/icons/Menu - 258 1.png" class="menu_responsivo">
-          <h2 class="navegation__title">Mercado Livre de Energia</h2>
-          <img
-              src="/src/assets/images/icons/seta-direita.png"
-              alt="seta de navegação para a direita"
-              class="arrow"
-          />
-          <h2 class="navegation__title">Cadastro</h2>
+          <div class="flex items-center gap-2 lg:gap-3">
+            <img src="assets/images/icons/Menu - 258 1.png" class="menu_responsivo block lg:hidden cursor-pointer">
+            <h2 class="navegation__title">Mercado Livre de Energia</h2>
+            <img
+                src="/src/assets/images/icons/seta-direita.png"
+                alt="seta de navegação para a direita"
+                class="arrow"
+            />
+            <h2 class="navegation__title">Cadastro</h2>
+          </div>
+          <div class="flex gap-2">
+            <button>
+              <img src="/src/assets/images/icons/Notificação_5-8.png" alt="Notificação" class="w-8 h-8 lg:w-10 lg:h-10">
+            </button>
+            <button class="bg-gray-700/20 py-1 px-3 items-center rounded-lg hidden lg:flex">
+              <img src="/src/assets/images/icons/central-de-ajuda-branco.png" alt="Ajuda" class="w-6 h-6">
+              <p class="text-sm font-bold text-white">Ajuda</p>
+            </button>
+          </div>
         </div>
 
         <div class="scroll-content">
           <main class="tab">
-            <div class="tab__content__banner">
+            <div class="mx-auto">
               <img
               class="hidden lg:block"
                 src="/src/assets/images/banners/mercador-de-energia-banner-2.png"
@@ -423,14 +434,25 @@
       <main class="route hidden" id="informe-de-recibo">
         <div class="tab__navegation">
           <!-- Adicionar navegação das rotas aqui -->
-          <img src="assets/images/icons/Menu - 258 1.png" class="menu_responsivo">
-          <h2 class="navegation__title">Mercado Livre de Energia</h2>
-          <img
-              src="/src/assets/images/icons/seta-direita.png"
-              alt="seta de navegação para a direita"
-              class="arrow"
-          />
-          <h1 class="navegation__title">Informar Recibo</h1>
+          <div class="flex items-center gap-2 lg:gap-3">
+            <img src="assets/images/icons/Menu - 258 1.png" class="menu_responsivo block lg:hidden cursor-pointer">
+            <h2 class="navegation__title">Mercado Livre de Energia</h2>
+            <img
+                src="/src/assets/images/icons/seta-direita.png"
+                alt="seta de navegação para a direita"
+                class="arrow"
+            />
+            <h2 class="navegation__title">Recibo</h2>
+          </div>
+          <div class="flex gap-2">
+            <button>
+              <img src="/src/assets/images/icons/Notificação_5-8.png" alt="Notificação" class="w-8 h-8 lg:w-10 lg:h-10">
+            </button>
+            <button class="bg-gray-700/20 py-1 px-3 items-center rounded-lg hidden lg:flex">
+              <img src="/src/assets/images/icons/central-de-ajuda-branco.png" alt="Ajuda" class="w-6 h-6">
+              <p class="text-sm font-bold text-white">Ajuda</p>
+            </button>
+          </div>
         </div>
 
         <div class="scroll-content">

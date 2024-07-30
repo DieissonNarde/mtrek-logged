@@ -1,5 +1,3 @@
-let isProcessing = false;
-
 // Função para habilitar ou desabilitar o botão de envio
 function toggleSubmitButton() {
     const form = document.getElementById('cadastroForm');

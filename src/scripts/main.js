@@ -32,7 +32,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     // Seleciona a imagem do menu responsivo e o botão de seta responsiva
-    const menuResponsiveImg = document.querySelector('.menu_responsivo');
+    const menuResponsiveImg = document.querySelectorAll('.menu_responsivo');
     const arrowHeaderResponsive = document.querySelector('.arrow_header_responsive');
     
     // Seleciona o header, o aside e a sobreposição
@@ -49,7 +49,9 @@
   
     // Adiciona eventos de clique para a imagem do menu responsivo
     if (menuResponsiveImg) {
-      menuResponsiveImg.addEventListener('click', toggleVisibility);
+      menuResponsiveImg.forEach(function(img) {
+        img.addEventListener('click', toggleVisibility)
+      });
     }
   
     // Adiciona eventos de clique para o botão de seta responsiva
@@ -76,7 +78,7 @@
   // Lógica do modal
 
 function openModal() {
-  document.getElementById("idModal").style.display = "block";
+  document.getElementById("idModal").style.display = "flex";
 }
 
 function closeModal() {

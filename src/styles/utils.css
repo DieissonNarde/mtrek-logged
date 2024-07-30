@@ -14,9 +14,13 @@
   @apply font-black text-white;
 }
 
+.navegation__title {
+  @apply font-bold text-xs lg:text-2xl text-white;
+}
+
 /* Seta */
 .arrow {
-  @apply w-7 h-7;
+  @apply w-4 h-4 lg:w-7 lg:h-7;
 }
 
 /* Botão */
