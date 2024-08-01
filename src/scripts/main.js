@@ -30,52 +30,52 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona a imagem do menu responsivo e o botão de seta responsiva
-    const menuResponsiveImg = document.querySelectorAll('.menu_responsivo');
-    const arrowHeaderResponsive = document.querySelector('.arrow_header_responsive');
-    
-    // Seleciona o header, o aside e a sobreposição
-    const header = document.getElementById('header');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    
-    // Função para alternar a visibilidade do header, sidebar e overlay
-    function toggleVisibility() {
-      header.classList.toggle('hidden');
-      sidebar.classList.toggle('hidden');
-      overlay.classList.toggle('active');
-    }
-  
-    // Adiciona eventos de clique para a imagem do menu responsivo
-    if (menuResponsiveImg) {
-      menuResponsiveImg.forEach(function(img) {
-        img.addEventListener('click', toggleVisibility)
-      });
-    }
-  
-    // Adiciona eventos de clique para o botão de seta responsiva
-    if (arrowHeaderResponsive) {
-      arrowHeaderResponsive.addEventListener('click', function () {
-        toggleVisibility();
-        arrowHeaderResponsive.classList.toggle('active');
-      });
-    }
-  
-    // Adiciona um evento de clique para a sobreposição para fechar o menu quando clicado
-    if (overlay) {
-      overlay.addEventListener('click', function () {
-        header.classList.add('hidden');
-        sidebar.classList.add('hidden');
-        overlay.classList.remove('active');
-        if (arrowHeaderResponsive) {
-          arrowHeaderResponsive.classList.remove('active');
-        }
-      });
-    }
-  });
+document.addEventListener('DOMContentLoaded', function () {
+  const menuResponsiveImg = document.querySelectorAll('.menu_responsivo');
+  const arrowHeaderResponsive = document.querySelector('.arrow_header_responsive');
+  const header = document.getElementById('header');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
 
-  // Lógica do modal
+  function toggleVisibility() {
+    header.classList.toggle('hidden');
+    sidebar.classList.toggle('hidden');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('no-scroll'); // Adiciona ou remove a classe no-scroll
+  }
+
+  function closeSidebar() {
+    header.classList.add('hidden');
+    sidebar.classList.add('hidden');
+    overlay.classList.remove('active');
+    document.body.classList.remove('no-scroll'); // Remove a classe no-scroll
+    if (arrowHeaderResponsive) {
+      arrowHeaderResponsive.classList.remove('active');
+    }
+  }
+
+  if (menuResponsiveImg) {
+    menuResponsiveImg.forEach(function(img) {
+      img.addEventListener('click', toggleVisibility);
+    });
+  }
+
+  if (arrowHeaderResponsive) {
+    arrowHeaderResponsive.addEventListener('click', function () {
+      toggleVisibility();
+      arrowHeaderResponsive.classList.toggle('active');
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', closeSidebar);
+  }
+
+  // Fecha o sidebar ao clicar em qualquer item dentro dele
+  sidebar.querySelectorAll('*').forEach(function(item) {
+    item.addEventListener('click', closeSidebar);
+  });
+});
 
 function openModal() {
   document.getElementById("idModal").style.display = "flex";
@@ -96,5 +96,3 @@ function submitDocuments() {
   closeModal();
   alert("Documentos enviados com sucesso!");
 }
-
-  
