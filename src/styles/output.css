@@ -1,5 +1,7 @@
 /* Classes e estilos utilitários*/
-
+body.no-scroll {
+  overflow: hidden;
+}
 /* Titulos */
 
 .title-big {
