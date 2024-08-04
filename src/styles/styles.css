@@ -12,7 +12,7 @@
 
 /* Estilo geral da barra de navegação */
 .header {
-  @apply flex items-center h-[112px] max-w-[2560px] mx-auto relative;
+  @apply flex items-center h-[86px] max-w-[2560px] mx-auto relative;
 }
 
 .avatar {
@@ -20,9 +20,13 @@
   z-index: 1;
 }
 
+.avatar-img {
+  @apply w-[80px] h-[80px] rounded-full;
+}
+
 .menu {
   @apply pr-3 pl-5 py-5 overflow-y-scroll;
-  height: calc(100vh - 112px);
+  height: calc(100vh - 86px);
 }
 .menu__list {
   @apply flex flex-col justify-center gap-0;
@@ -66,16 +70,10 @@
 }
 
 .tab__navegation {
-  @apply flex items-center justify-between h-[112px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] shadow-lg 
-  absolute top-[-112px] right-0 z-[2] w-full;
+  @apply flex items-center justify-between h-[86px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] shadow-lg absolute top-[-86px] right-0 z-[2] w-full;
 
 }
 
-@media screen and (min-width: 1024px) {
-  .tab__navegation {
-    max-width: calc(2560px - 640px);
-  }
-}
 .scroll-content {
   @apply overflow-y-auto lg:overflow-y-scroll h-full;
 
@@ -85,7 +83,7 @@
 }
 
 .tab {
-  @apply flex flex-col gap-8 max-w-[1202.66px] px-4 py-3 lg:px-8 lg:py-6;
+  @apply flex flex-col gap-8 max-w-[1202.66px] px-4 py-3 lg:px-8 lg:py-6 mx-auto;
 }
 
 .tab__content {

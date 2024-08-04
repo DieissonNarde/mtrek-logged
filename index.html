@@ -21,7 +21,7 @@
         <img
           src="https://github.com/Lxcier.png"
           alt="Imagem de perfil do usuário"
-          class="rounded-full w-[84px] h-[84px] avatar_profile"
+          class="avatar-img"
         />
         <div class="avatar__profile">
           <h2 class="avatar__profile__greetings title-fblack text-red">
@@ -464,7 +464,13 @@
                         </select>
                       </div>
                       <!-- Recibo e Documento de Identidade -->
-                      <div class="flex flex-col gap-3 mt-6">
+                      <div class="flex flex-col gap-3 mt-2">
+                        <p
+                            id="cadastro-file-name-placeholder"
+                            class="text-sm font-bold"
+                          >
+                            Tipos permitidos: .jpg, .png, .pdf, .doc
+                          </p>
                         <div class="relative h-8">
                           <input
                             type="file"
@@ -478,33 +484,31 @@
                           />
                           <label
                             for="cadastro-recibo"
-                            id="cadastro-file-btn"
+                            id="loadEnergyBillBtn"
                             class="button block text-center cursor-pointer"
+                            style="background: #83217c;"
                           >
-                            <span id="cadastro-file-btn-text">
-                              Carregar conta de energia</span
-                            >
+                              Carregar conta de energia
                           </label>
                         </div>
+                        
                         <div class="block">
                           <button
+                            id="loadDocumentsBtn"
                             class="button"
+                            style="background: #83217c;"
                             type="button"
                             onclick="openModal()"
                           >
                             Carregar documento de identidade
                           </button>
-                          <p
-                            id="cadastro-file-name-placeholder"
-                            class="text-sm font-bold"
-                          >
-                            Tipos permitidos: .jpg, .png, .pdf, .doc
-                          </p>
+                          
                         </div>
                         <button
                           class="button"
                           type="submit"
                           id="cadastro-enviarBtn"
+                          style="background: #d9d9d9; color: #000"
                         >
                           Enviar
                         </button>
@@ -515,37 +519,98 @@
               </div>
 
               <!-- Modal -->
-<div id="idModal" class="modal">
-  <div class="modal-content w-[90%] lg:w-[80%]">
-      <div class="article__header flex justify-between items-center max-w-[600px] mx-auto">
-          <h2 class="title-fblack">Carregar Documento de Identidade</h2>
-          <span class="close cursor-pointer" onclick="closeModal()">
-              <img src="/src/assets/images/icons/fechar.png" alt="">
-          </span>
-      </div>
-      <div class="modal-body bg-[#fefefe] py-6 px-10 rounded-b-[20px]">
-          <p class="text-sm font-light">Nos envie o seu Documento de identidade, pode ser em arquivos <b class="font-bold text-black">jpg, .png, .pdf, .doc</b></p>
-          <form id="documentForm">
-              <div class="modal-section mt-4 mb-16">
-                      <img src="/src/assets/images/identidade-frente.png" alt="Imagem Frente" class="border-8 border-[#5F7336] rounded-lg mb-4">
-                  <input type="file" id="frenteDocumento" name="frenteDocumento" accept=".jpg,.png,.pdf,.doc" onchange="updateFileName('frenteDocumento')">
-                  <label class="button button-green bg-[#5F7336] hover:bg-[#6c833d] cursor-pointer px-3 py-1" for="frenteDocumento">Enviar Frente</label>
-                  <span id="frenteDocumentoName" class="text-sm text-gray-600 block mt-2 truncate max-w-[204px]" title="Nenhum arquivo selecionado">Nenhum arquivo selecionado</span>
-              </div>
-              <div class="modal-section mt-4 mb-16">
-                  <div class="border-8 border-[#5F7336] rounded-lg mb-4">
-                      <img src="/src/assets/images/identidade-frente.png" alt="Imagem Verso">
+              <div id="idModal" class="modal">
+                <div class="modal-content w-[90%] lg:w-[80%]">
+                  <div
+                    class="article__header flex justify-between items-center max-w-[600px] mx-auto"
+                  >
+                    <h2 class="title-fblack">
+                      Carregar Documento de Identidade
+                    </h2>
+                    <span class="close cursor-pointer" onclick="closeModal()">
+                      <img src="/src/assets/images/icons/fechar.png" alt="" />
+                    </span>
                   </div>
-                  <input type="file" id="versoDocumento" name="versoDocumento" accept=".jpg,.png,.pdf,.doc" onchange="updateFileName('versoDocumento')">
-                  <label class="button button-green bg-[#5F7336] hover:bg-[#6c833d] cursor-pointer px-3 py-1" for="versoDocumento">Enviar Verso</label>
-                  <span id="versoDocumentoName" class="text-sm text-gray-600 block mt-2 truncate max-w-[204px]" title="Nenhum arquivo selecionado">Nenhum arquivo selecionado</span>
+                  <div
+                    class="modal-body bg-[#fefefe] py-6 px-10 rounded-b-[20px]"
+                  >
+                    <p class="text-sm font-light">
+                      Nos envie o seu Documento de identidade, pode ser em
+                      arquivos
+                      <b class="font-bold text-black">jpg, .png, .pdf, .doc</b>
+                    </p>
+                    <form id="documentForm">
+                      <div class="modal-section mt-4 mb-16">
+                        <img
+                          id="frenteImg"
+                          src="/src/assets/images/identidade-frente.png"
+                          alt="Imagem Frente"
+                          class="rounded-lg mb-4"
+                          style="border: 8px solid #d9d9d9"
+                        />
+                        <input
+                          type="file"
+                          id="frenteDocumento"
+                          name="frenteDocumento"
+                          accept=".jpg,.png,.pdf,.doc"
+                          onchange="updateFileName('frenteDocumento')"
+                        />
+                        <label
+                          id="frenteLabel"
+                          class="button cursor-pointer px-3 py-1"
+                          for="frenteDocumento"
+                          style="background: #83217c"
+                          >Enviar Frente</label
+                        >
+                        <span
+                          id="frenteDocumentoName"
+                          class="text-sm text-gray-600 block mt-2 truncate max-w-[204px]"
+                          title="Nenhum arquivo selecionado"
+                          >Nenhum arquivo selecionado</span
+                        >
+                      </div>
+                      <div class="modal-section mt-4 mb-16">
+                        <img
+                          id="versoImg"
+                          class="rounded-lg mb-4"
+                          src="/src/assets/images/identidade-frente.png"
+                          alt="Imagem Verso"
+                          style="border: 8px solid #d9d9d9"
+                        />
+                        <input
+                          type="file"
+                          id="versoDocumento"
+                          name="versoDocumento"
+                          accept=".jpg,.png,.pdf,.doc"
+                          onchange="updateFileName('versoDocumento')"
+                        />
+                        <label
+                          id="versoLabel"
+                          class="button cursor-pointer px-3 py-1"
+                          for="versoDocumento"
+                          style="background: #83217c"
+                          >Enviar Verso</label
+                        >
+                        <span
+                          id="versoDocumentoName"
+                          class="text-sm text-gray-600 block mt-2 truncate max-w-[204px]"
+                          title="Nenhum arquivo selecionado"
+                          >Nenhum arquivo selecionado</span
+                        >
+                      </div>
+                      <button
+                        id="submitDocumentsBtn"
+                        class="button"
+                        type="button"
+                        onclick="submitDocuments()"
+                        style="background: #d9d9d9; color: #000"
+                      >
+                        Enviar
+                      </button>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <button id="submitDocumentsBtn" class="button" type="button" onclick="submitDocuments()">Enviar</button>
-          </form>
-      </div>
-  </div>
-</div>
-
             </div>
           </main>
         </div>
@@ -656,7 +721,12 @@
                         </select>
                       </div>
                       <!-- Recibo -->
-                      <div class="mb-4">
+                      <div class="flex flex-col gap-3 mt-2">
+                        <p class="text-sm font-bold">
+                          <span id="recibo-file-name-placeholder"
+                            >Tipos permitidos: .jpg, .png, .pdf, .doc</span
+                          >
+                        </p>
                         <div class="relative h-8">
                           <input
                             type="file"
@@ -678,20 +748,15 @@
                             >
                           </label>
                         </div>
-                        <p class="text-sm font-bold">
-                          <span id="recibo-file-name-placeholder"
-                            >Tipos permitidos: .jpg, .png, .pdf, .doc</span
-                          >
-                        </p>
-                      </div>
-                      <button
+                        <button
                         type="submit"
                         id="enviarReciboBtn"
-                        style="background: #d9d9d9"
-                        class="w-full bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 rounded-3xl font-black"
+                        style="background: #d9d9d9; color: #000;"
+                        class="button"
                       >
                         Enviar Recibo
                       </button>
+                      </div>
                     </form>
 
                     <img
