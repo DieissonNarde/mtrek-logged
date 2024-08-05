@@ -17,6 +17,7 @@
   scroll-behavior: smooth;
 }
 
+
 body {
   @apply h-full lg:h-screen overflow-y-auto lg:overflow-y-hidden;
 }
@@ -34,6 +35,9 @@ select {
     background-size: 1.5em 1.5em;
     padding-right: 2.5rem;
 }
+select.option-selected {
+  color: black;
+}
 
 ::-webkit-scrollbar {
   width: 16px; /* Largura da scrollbar vertical */
@@ -44,9 +48,11 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-[#800080] to-[#FFCCFF] rounded-lg border-4 border-white border-solid;
+ background-color: #83217C;
 }
-
+/* ::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-[#800080] to-[#FFCCFF] rounded-lg border-4 border-white border-solid;
+} */
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gradient-to-b from-[#660066] to-[#FF99FF];
 }
