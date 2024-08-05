@@ -70,6 +70,14 @@ function updateCadastroFileName(input) {
     loadEnergyBillBtn.textContent = file ? 'Conta de energia carregada' : 'Carregar conta de energia';
 }
 
+function openStep2Modal() {
+    document.getElementById("step2Modal").style.display = "flex";
+}
+
+function closeStep2Modal() {
+    document.getElementById("step2Modal").style.display = "none";
+}
+
 // Função para lidar com o envio do formulário no cadastroForm
 function submitCadastroForm(event) {
     if (isCadastroProcessing) return;
@@ -79,15 +87,44 @@ function submitCadastroForm(event) {
     const form = document.getElementById('cadastroForm');
     const formData = new FormData(form);
 
+    const submitButton = document.getElementById('cadastro-enviarBtn');
+
+    submitButton.textContent = 'Enviando...';
+    submitButton.disabled = true;
+    submitButton.style.background = '#D9D9D9';
+    submitButton.style.color = '#000000';
+
     console.log('Dados do Formulário Cadastro:');
     for (const [key, value] of formData.entries()) {
         console.log(`${key}: ${value instanceof File ? value.name : value}`);
     }
 
     simulateBackendOperation(() => {
-        alert('Formulário de Cadastro enviado com sucesso!');
+        openStep2Modal()
+
+        const energyBillBtn = document.getElementById('loadEnergyBillBtn');
+        const documentBtn = document.getElementById('loadDocumentsBtn');
+
+        const documentForm = document.getElementById('documentForm');
+
         form.reset();
+        documentForm.reset()
+
         document.getElementById('cadastro-file-name-placeholder').textContent = 'Tipos permitidos: .jpg, .png, .pdf, .doc';
+
+        submitButton.textContent = 'Enviar';
+        submitButton.disabled = false;
+        submitButton.style.background = '#83217c';
+        submitButton.style.color = '#ffffff';
+
+        energyBillBtn.textContent = 'Carregar conta de energia';
+        energyBillBtn.style.background = '#83217c';
+
+        documentBtn.textContent = 'Carregar documento de identidade';
+        documentBtn.style.background = '#83217c';
+
+        document.getElementById('cadastro-recibo').value = ''; // Reseta o valor do input de recibo
+
         isDocumentUploaded = false; // Reseta o estado do documento após o envio
         checkDocumentStatus(); // Atualiza o estado do botão de carregamento
         isCadastroProcessing = false;
@@ -99,7 +136,7 @@ function simulateBackendOperation(callback) {
     setTimeout(() => {
         console.log('Simulação de envio bem-sucedido.');
         callback();
-    }, 2000);
+    }, 3000);
 }
 
 // Lógica do modal
@@ -192,7 +229,7 @@ function toggleSubmitButtonState() {
 // Função para lidar com o envio dos documentos
 function submitDocuments(event) {
     event.preventDefault(); // Previne o envio padrão do formulário
-
+    
     const frenteInput = document.getElementById('frenteDocumento');
     const versoInput = document.getElementById('versoDocumento');
     const submitButton = document.getElementById('submitDocumentsBtn');
