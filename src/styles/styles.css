@@ -194,3 +194,19 @@
   }
 }
 
+/*ACTIVE*/
+.menu__list__item__link.active {
+  color: var(--energy-color);
+}
+.menu__list__item__link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 5px;
+  height: 32px;
+  background-color: #39441C;
+}
+
+.menu__list__item__link.active .menu__list__item__icon {
+  filter: brightness(1.2);
+}

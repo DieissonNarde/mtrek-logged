@@ -468,6 +468,25 @@
   }
 }
 
+/*ACTIVE*/
+
+.menu__list__item__link.active {
+  color: var(--energy-color);
+}
+
+.menu__list__item__link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 5px;
+  height: 32px;
+  background-color: #39441C;
+}
+
+.menu__list__item__link.active .menu__list__item__icon {
+  filter: brightness(1.2);
+}
+
 /* ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com*/
 
 /*
@@ -1430,6 +1449,10 @@ video {
   scroll-behavior: smooth;
 }
 
+select.rotated {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 12l4-4 4 4'/%3e%3c/svg%3e");
+}
+
 body {
   height: 100%;
   overflow-y: auto;
@@ -1440,6 +1463,15 @@ body {
     height: 100vh;
     overflow-y: hidden;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#sidebar {
+  overflow-y: auto;
+  /* Permite rolagem vertical no sidebar */
 }
 
 input,
@@ -1497,6 +1529,10 @@ select {
   padding-right: 2.5rem;
 }
 
+select.option-selected {
+  color: black;
+}
+
 ::-webkit-scrollbar {
   width: 16px;
   /* Largura da scrollbar vertical */
@@ -1512,6 +1548,7 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
+  background-color: #83217C;
   border-radius: 0.5rem;
   border-width: 4px;
   border-style: solid;
@@ -1632,3 +1669,4 @@ select {
     border-bottom-left-radius: 0.5rem;
   }
 }
+
