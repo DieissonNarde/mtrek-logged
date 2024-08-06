@@ -58,9 +58,9 @@ select.option-selected {
 ::-webkit-scrollbar-thumb {
  background-color: #83217C;
 }
-/* ::-webkit-scrollbar-thumb {
+ ::-webkit-scrollbar-thumb {
   @apply bg-gradient-to-b from-[#800080] to-[#FFCCFF] rounded-lg border-4 border-white border-solid;
-} */
+} 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gradient-to-b from-[#660066] to-[#FF99FF];
 }

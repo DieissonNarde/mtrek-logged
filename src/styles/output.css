@@ -441,7 +441,34 @@
 }
 
 @media (max-width: 1024px) {
-  .m/*ACTIVE*/
+  .menu {
+    width: 300px;
+    padding-left: 1.25rem;
+    position: fixed;
+    background-color: white;
+    z-index: 1000;
+  }
+
+  #header {
+    width: 300px;
+    height: 112px;
+    padding-left: 1.25rem;
+    position: fixed;
+    background-color: var(--bg-primary);
+    z-index: 1000;
+  }
+
+  .arrow_header_responsive {
+    cursor: pointer;
+    rotate: 180deg;
+    position: absolute;
+    left: 280px;
+    z-index: 200;
+    display: block;
+  }
+}
+
+/*ACTIVE*/
 
 .menu__list__item__link.active {
   color: var(--energy-color);
@@ -461,9 +488,6 @@
 }
 
 /* ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com*/
-
-/*
-1. Prevent padding and border from affecting element widt/* ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com*/
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1425,6 +1449,10 @@ video {
   scroll-behavior: smooth;
 }
 
+select.rotated {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 12l4-4 4 4'/%3e%3c/svg%3e");
+}
+
 body {
   height: 100%;
   overflow-y: auto;
@@ -1435,6 +1463,15 @@ body {
     height: 100vh;
     overflow-y: hidden;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#sidebar {
+  overflow-y: auto;
+  /* Permite rolagem vertical no sidebar */
 }
 
 input,
@@ -1479,8 +1516,8 @@ select:focus {
 
 select {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
@@ -1490,6 +1527,10 @@ select {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
+}
+
+select.option-selected {
+  color: black;
 }
 
 ::-webkit-scrollbar {
@@ -1507,6 +1548,7 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
+  background-color: #83217C;
   border-radius: 0.5rem;
   border-width: 4px;
   border-style: solid;
@@ -1627,81 +1669,4 @@ select {
     border-bottom-left-radius: 0.5rem;
   }
 }
-(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
 
-.focus\:ring-gray-300:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity));
-}
-
-.focus\:ring-opacity-50:focus {
-  --tw-ring-opacity: 0.5;
-}
-
-@media (min-width: 640px) {
-  .sm\:gap-3 {
-    gap: 0.75rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:order-1 {
-    order: 1;
-  }
-
-  .lg\:order-2 {
-    order: 2;
-  }
-
-  .lg\:block {
-    display: block;
-  }
-
-  .lg\:flex {
-    display: flex;
-  }
-
-  .lg\:hidden {
-    display: none;
-  }
-
-  .lg\:h-10 {
-    height: 2.5rem;
-  }
-
-  .lg\:w-1\/2 {
-    width: 50%;
-  }
-
-  .lg\:w-10 {
-    width: 2.5rem;
-  }
-
-  .lg\:w-\[48\%\] {
-    width: 48%;
-  }
-
-  .lg\:w-\[80\%\] {
-    width: 80%;
-  }
-
-  .lg\:flex-row {
-    flex-direction: row;
-  }
-
-  .lg\:gap-3 {
-    gap: 0.75rem;
-  }
-
-  .lg\:rounded-b-none {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
-
-  .lg\:rounded-l-lg {
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-  }
-}
