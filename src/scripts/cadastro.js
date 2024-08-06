@@ -41,7 +41,7 @@ function checkDocumentStatus() {
 
     // Atualiza o estilo do botão "carregar documento de identidade"
     const documentBtn = document.getElementById('loadDocumentsBtn');
-    documentBtn.style.background = isDocumentUploaded ? '#5F7336' : '#83217c';
+    documentBtn.style.background = isDocumentUploaded ? '#5F7336' : '';
     documentBtn.textContent = isDocumentUploaded ? 'Documento de identidade carregado' : 'Carregar documento de identidade';
 
     toggleCadastroSubmitButton(); // Verifica se o botão de envio do cadastro deve ser habilitado
@@ -52,10 +52,19 @@ function toggleCadastroSubmitButton() {
     const form = document.getElementById('cadastroForm');
     const submitButton = document.getElementById('cadastro-enviarBtn');
     const isValid = form.checkValidity() && isDocumentUploaded; // Verifica o estado do formulário e do documento
+    const fields = ['nome', 'sobrenome', 'estado', 'distribuidora'] // Campos obrigatórios
 
     submitButton.disabled = !isValid;
     submitButton.style.background = isValid ? '#5F7336' : '#D9D9D9';
     submitButton.style.color = isValid ? '#ffffff' : '#000000';
+
+    fields.forEach(field => {
+        const el = document.getElementById(field);
+        el.setCustomValidity(el.value.trim() === '' ? 'Este campo é obrigatório' : '');
+        if(el) {
+            el.style.borderColor = el.checkValidity() ? '#5F7336' : '#D9D9D9';
+        } 
+    })
 }
 
 // Função para atualizar o nome do arquivo carregado no cadastroForm
@@ -66,7 +75,7 @@ function updateCadastroFileName(input) {
     
     fileNamePlaceholder.textContent = file ? file.name : 'Tipos permitidos: .jpg, .png, .pdf, .doc';
     
-    loadEnergyBillBtn.style.background = file ? '#5F7336' : '#83217c';
+    loadEnergyBillBtn.style.background = file ? '#5F7336' : '';
     loadEnergyBillBtn.textContent = file ? 'Conta de energia carregada' : 'Carregar conta de energia';
 }
 
@@ -114,14 +123,14 @@ function submitCadastroForm(event) {
 
         submitButton.textContent = 'Enviar';
         submitButton.disabled = false;
-        submitButton.style.background = '#83217c';
+        submitButton.style.backgroundColor = '';
         submitButton.style.color = '#ffffff';
 
         energyBillBtn.textContent = 'Carregar conta de energia';
-        energyBillBtn.style.background = '#83217c';
+        energyBillBtn.style.backgroundColor = '';
 
         documentBtn.textContent = 'Carregar documento de identidade';
-        documentBtn.style.background = '#83217c';
+        documentBtn.style.backgroundColor = '';
 
         document.getElementById('cadastro-recibo').value = ''; // Reseta o valor do input de recibo
 
@@ -136,7 +145,7 @@ function simulateBackendOperation(callback) {
     setTimeout(() => {
         console.log('Simulação de envio bem-sucedido.');
         callback();
-    }, 3000);
+    }, 2000);
 }
 
 // Lógica do modal
@@ -203,7 +212,7 @@ function updateInputStyles(inputId, file) {
     const labelElement = document.getElementById(isFrente ? 'frenteLabel' : 'versoLabel');
 
     imgElement.style.border = file ? '8px solid #5F7336' : '8px solid #D9D9D9';
-    labelElement.style.background = file ? '#5F7336' : '#83217c';
+    labelElement.style.background = file ? '#5F7336' : '';
     labelElement.textContent = file ? 'Carregado' : `Enviar ${isFrente ? 'Frente' : 'Verso'}`;
 }
 

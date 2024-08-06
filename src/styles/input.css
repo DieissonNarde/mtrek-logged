@@ -30,21 +30,19 @@ body {
   #sidebar {
     overflow-y: auto; /* Permite rolagem vertical no sidebar */
   }
+
 input,
 select {
-    @apply block bg-[#e4e4e4] placeholder:text-[#AEAEAE] placeholder:text-sm w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm  focus:text-gray-700;
+    @apply block bg-[#e4e4e4] placeholder:text-[#AEAEAE] placeholder:text-sm w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm  focus:text-gray-700 text-black;
 }
 
 select {
-    @apply text-sm text-[#AEAEAE] appearance-none;
+    @apply text-sm appearance-none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 0.5rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
     padding-right: 2.5rem;
-}
-select.option-selected {
-  color: black;
 }
 
 ::-webkit-scrollbar {

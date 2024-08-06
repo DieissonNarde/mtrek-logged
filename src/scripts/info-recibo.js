@@ -17,7 +17,6 @@ function toggleReciboSubmitButton() {
         const element = document.getElementById(id);
         if (element) {
             element.style.borderColor = isValid ? '#5F7336' : '#D9D9D9';
-            element.style.color = isValid ? '#000' : '#AEAEAE';
         }
     });
 }
