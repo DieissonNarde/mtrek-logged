@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | Mtrek</title>
     <link href="./styles/output.css" rel="stylesheet" />
+    <link href="./styles/input.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -363,7 +364,7 @@
                           <!-- Estado e Distribuidora -->
                           <div class="flex flex-col gap-3">
                               <label for="estado" class="text-sm font-semibold">Estado</label>
-                              <select class="w-full" id="estado" name="estado">
+                              <select class="w-full select-toggle" id="estado" name="estado">
                                 <option value="" disabled selected>Selecione o seu estado</option>
                                 <option value="ac">Acre</option>
                                 <option value="al">Alagoas</option>
@@ -397,7 +398,7 @@
                           </div>
                           <div class="flex flex-col gap-3">
                               <label for="distribuidora" class="text-sm font-semibold">Distribuidora</label>
-                              <select class="w-full" id="distribuidora" name="distribuidora">
+                              <select class="w-full select-toggle" id="distribuidora" name="distribuidora">
                                 <option value="" disabled selected>Selecione a distribuidora de energia</option>
                                 <option value="cemig">Cemig</option>
                                 <option value="coelba">Coelba</option>
@@ -520,7 +521,7 @@
                     </div>
                     <div class="flex flex-col gap-3">
                         <label for="recibo-distribuidora" class="font-semibold">Distribuidora</label>
-                        <select id="recibo-distribuidora" name="distribuidora" required>
+                        <select class="select_arrow select-toggle"  id="recibo-distribuidora" name="distribuidora" required>
                             <option value="">Selecionar a distribuidora de energia</option>
                             <option value="distribuidora1">Cemig </option>
                             <option value="distribuidora2">Coelba </option>
