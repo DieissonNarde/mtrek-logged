@@ -1,4 +1,18 @@
 /* Classes e estilos utilitários*/
+input[type="date"] {
+  background: url(../assets/images/icons/calendário.png);
+  background-repeat: no-repeat;
+  background-position: 99%;
+  background-color: rgb(228 228 228 / var(--tw-bg-opacity));
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+nav a:hover {
+  color: var(--energy-color);
+}
 
 /* Titulos */
 
