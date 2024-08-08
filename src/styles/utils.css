@@ -1,34 +1,42 @@
-/* Classes e estilos utilitários*/
+/* Classes e Estilos Utilitários */
 
-/* Titulos */
+/* Títulos */
 .title-big {
-  @apply text-2xl font-bold text-white;
+	@apply text-2xl font-bold text-white;
 }
 
 .title,
 .title-black {
-  @apply text-xl;
+	@apply text-xl;
 }
 
 .title-fblack {
-  @apply font-black text-white;
+	@apply font-black text-white;
 }
 
-/* Seta */
+.navegation__title {
+	@apply font-bold text-xs lg:text-2xl text-white;
+}
+
+/* Setas */
 .arrow {
-  @apply w-7 h-7;
+	@apply w-4 h-4 lg:w-7 lg:h-7;
 }
 
-/* Botão */
+/* Botões */
 .button {
-  @apply bg-[var(--bg-primary)] text-white font-semibold md:font-black py-1 w-full rounded-lg hover:bg-[var(--bg-secundary)] transition-all duration-200 text-sm md:text-base;
+	@apply bg-[var(--bg-primary)] text-white font-semibold md:font-black text-sm md:text-base py-1 w-full rounded-lg border border-transparent hover:bg-transparent hover:border-[var(--bg-primary)] hover:text-black transition-all duration-200;
+}
+
+.button[disabled] {
+	@apply hover:border-transparent cursor-not-allowed;
 }
 
 .button-green {
-  @apply bg-[#ABFF00] border border-transparent hover:bg-transparent hover:border-[#ABFF00];
+	@apply bg-[#ABFF00] border border-transparent hover:bg-transparent hover:border-[#ABFF00];
 }
 
+/* Cabeçalhos de Artigos */
 .article__header {
-  @apply w-full bg-[var(--bg-primary)] py-5 px-5;
-  border-radius: 20px 20px 0 0;
+	@apply w-full bg-[var(--bg-primary)] py-5 px-5 rounded-t-[20px];
 }
