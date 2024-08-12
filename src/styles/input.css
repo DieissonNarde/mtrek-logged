@@ -7,79 +7,99 @@
 
 /* Variáveis CSS */
 :root {
-  --bg-primary: #83217c;
-  --bg-secundary: #a32d9b;
-  --ecommerce-color: #f2981e;
-  --energy-color: #5f7336;
-  font-family: "Lato", sans-serif;
-  scroll-behavior: smooth;
+	--bg-primary: #83217c;
+	--bg-secundary: #a32d9b;
+	--ecommerce-color: #f2981e;
+	--energy-color: #5f7336;
+	font-family: "Lato", sans-serif;
+	scroll-behavior: smooth;
 }
 
 /* Estilos Globais */
 body {
-  @apply h-full lg:h-screen overflow-y-auto lg:overflow-y-hidden;
+	@apply h-full lg:h-screen overflow-y-auto lg:overflow-y-hidden;
 }
 
 .no-scroll {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 #sidebar {
-  overflow-y: auto; /* Permite rolagem vertical no sidebar */
+	overflow-y: auto; /* Permite rolagem vertical no sidebar */
 }
 
 /* Inputs e Selects */
+input[type="date"] {
+	background: url(../assets/images/icons/calendário.png);
+	background-repeat: no-repeat;
+	background-position: 99%;
+	background-color: rgb(228 228 228 / var(--tw-bg-opacity));
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	opacity: 0;
+}
+
+nav a:hover {
+	color: var(--energy-color);
+}
+
 input,
 select {
-  @apply block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm bg-[#e4e4e4] placeholder:text-[#AEAEAE] placeholder:text-sm focus:text-gray-700 text-black;
+	@apply block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm bg-[#e4e4e4] placeholder:text-[#AEAEAE] placeholder:text-sm focus:text-gray-700 text-black;
 }
 
 select {
-  @apply text-sm appearance-none pr-10;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 0.5rem center;
-  background-repeat: no-repeat;
-  background-size: 1.5em 1.5em;
+	@apply text-sm appearance-none pr-10;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+	background-position: right 0.5rem center;
+	background-repeat: no-repeat;
+	background-size: 1.5em 1.5em;
 }
 
 select.rotated {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 12l4-4 4 4'/%3e%3c/svg%3e");
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='10' fill='%2383217C'/%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 12l4-4 4 4'/%3e%3c/svg%3e");
 }
 
 /* Customização da Scrollbar */
 ::-webkit-scrollbar {
-    width: 16px; /* Largura da scrollbar vertical */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background-color: #ffffff; /* Fundo branco */
-    border-radius: 10px; /* Cantos arredondados */
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra média */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #800080, #FFCCFF); /* Gradiente */
-    border-radius: 10px; /* Cantos arredondados */
-    border: 4px solid #ffffff; /* Borda branca */
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #660066, #FF99FF); /* Gradiente ao passar o mouse */
-  }
-  
-  /* Adicionando setas no topo e no fundo da scrollbar */
-  ::-webkit-scrollbar-button:single-step {
-    height: 16px;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  ::-webkit-scrollbar-button:single-step:vertical:decrement {
-    background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M19 15l-7-7-7 7" /%3e%3c/svg%3e') no-repeat center;
-  }
-  
-  ::-webkit-scrollbar-button:single-step:vertical:increment {
-    background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M5 9l7 7 7-7" /%3e%3c/svg%3e') no-repeat center;
-  }
-  
+	width: 16px; /* Largura da scrollbar vertical */
+}
+
+::-webkit-scrollbar-track {
+	background-color: #ffffff; /* Fundo branco */
+	border-radius: 10px; /* Cantos arredondados */
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra média */
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(to bottom, #800080, #ffccff); /* Gradiente */
+	border-radius: 10px; /* Cantos arredondados */
+	border: 4px solid #ffffff; /* Borda branca */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(
+		to bottom,
+		#660066,
+		#ff99ff
+	); /* Gradiente ao passar o mouse */
+}
+
+/* Adicionando setas no topo e no fundo da scrollbar */
+::-webkit-scrollbar-button:single-step {
+	height: 16px;
+	background-color: #f1f1f1;
+	border-radius: 10px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-button:single-step:vertical:decrement {
+	background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M19 15l-7-7-7 7" /%3e%3c/svg%3e')
+		no-repeat center;
+}
+
+::-webkit-scrollbar-button:single-step:vertical:increment {
+	background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M5 9l7 7 7-7" /%3e%3c/svg%3e')
+		no-repeat center;
+}

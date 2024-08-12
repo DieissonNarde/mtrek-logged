@@ -1453,6 +1453,21 @@ body {
 
 /* Inputs e Selects */
 
+input[type="date"] {
+  background: url(../assets/images/icons/calendário.png);
+  background-repeat: no-repeat;
+  background-position: 99%;
+  background-color: rgb(228 228 228 / var(--tw-bg-opacity));
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+nav a:hover {
+  color: var(--energy-color);
+}
+
 input,
 select {
   display: block;
@@ -1529,7 +1544,7 @@ select.rotated {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #800080, #FFCCFF);
+  background: linear-gradient(to bottom, #800080, #ffccff);
   /* Gradiente */
   border-radius: 10px;
   /* Cantos arredondados */
@@ -1538,7 +1553,11 @@ select.rotated {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #660066, #FF99FF);
+  background: linear-gradient(
+		to bottom,
+		#660066,
+		#ff99ff
+	);
   /* Gradiente ao passar o mouse */
 }
 
@@ -1552,11 +1571,13 @@ select.rotated {
 }
 
 ::-webkit-scrollbar-button:single-step:vertical:decrement {
-  background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M19 15l-7-7-7 7" /%3e%3c/svg%3e') no-repeat center;
+  background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M19 15l-7-7-7 7" /%3e%3c/svg%3e')
+		no-repeat center;
 }
 
 ::-webkit-scrollbar-button:single-step:vertical:increment {
-  background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M5 9l7 7 7-7" /%3e%3c/svg%3e') no-repeat center;
+  background: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3e%3cpath fill="none" stroke="%2383217c" stroke-width="2" d="M5 9l7 7 7-7" /%3e%3c/svg%3e')
+		no-repeat center;
 }
 
 .hover\:text-white:hover {
@@ -1629,4 +1650,3 @@ select.rotated {
     border-bottom-left-radius: 0.5rem;
   }
 }
-  
