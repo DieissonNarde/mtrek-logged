@@ -1552,12 +1552,17 @@ select.rotated {
   /* Borda branca */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
+/* ::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(
 		to bottom,
 		#660066,
 		#ff99ff
-	);
+	); /* Gradiente ao passar o mouse */
+
+/*select scrol */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #660066;
   /* Gradiente ao passar o mouse */
 }
 

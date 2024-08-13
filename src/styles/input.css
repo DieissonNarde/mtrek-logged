@@ -78,12 +78,15 @@ select.rotated {
 	border: 4px solid #ffffff; /* Borda branca */
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
 	background: linear-gradient(
 		to bottom,
 		#660066,
 		#ff99ff
 	); /* Gradiente ao passar o mouse */
+/*select scrol */
+::-webkit-scrollbar-thumb:hover {
+	background: #660066; /* Gradiente ao passar o mouse */
 }
 
 /* Adicionando setas no topo e no fundo da scrollbar */
