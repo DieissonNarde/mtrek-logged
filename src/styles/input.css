@@ -29,6 +29,18 @@ body {
 }
 
 /* Inputs e Selects */
+/* Estilo padrão para input e select */
+input.form-input,
+select.form-select {
+    color: gray;
+}
+
+/* Estilo para input e select preenchidos */
+input.form-input.filled,
+select.form-select.filled {
+    color: black;
+}
+
 input[type="date"] {
 	background: url(../assets/images/icons/calendário.png);
 	background-repeat: no-repeat;

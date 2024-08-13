@@ -70,7 +70,7 @@ function submitReciboForm(event) {
 		// Atualiza os estilos após o envio
 		const fileBtn = document.getElementById('recibo-file-btn');
 		fileBtn.style.backgroundColor = ''; // Cor roxa
-		fileBtn.style.color = '#fff'; // Texto branco
+		fileBtn.style.color = ''; // Texto branco
 
 		toggleReciboSubmitButton();
 		isReciboProcessing = false;
