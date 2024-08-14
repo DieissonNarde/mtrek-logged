@@ -15,7 +15,7 @@
 }
 
 .navegation__title {
-	@apply font-bold text-xs lg:text-2xl text-white;
+	@apply font-bold text-xs lg:text-xl text-white;
 }
 
 /* Setas */
@@ -39,4 +39,9 @@
 /* Cabeçalhos de Artigos */
 .article__header {
 	@apply w-full bg-[var(--bg-primary)] py-5 px-5 rounded-t-[20px];
+}
+
+/* Notificação */
+.notification {
+	@apply w-7 h-7 lg:w-9 lg:h-9 cursor-pointer transition-all duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:animate-pulse;
 }

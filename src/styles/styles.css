@@ -12,7 +12,7 @@
 
 /* Header */
 .header {
-	@apply flex items-center h-[86px] max-w-[2560px] mx-auto relative drop-shadow-lg;
+	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-10;
 }
 
 /* Avatar */
@@ -21,12 +21,12 @@
 }
 
 .avatar-img {
-	@apply w-[80px] h-[80px] rounded-full;
+	@apply !w-[70px] !h-[70px] rounded-full;
 }
 
 /* Menu */
 .menu {
-	@apply pr-3 pl-5 py-5 overflow-y-scroll h-[calc(100vh-86px)];
+	@apply pr-3 pl-5 py-5 overflow-y-scroll h-[calc(100vh-78px)];
 }
 
 .menu__list {
@@ -41,8 +41,13 @@
 	@apply flex items-center gap-1 w-fit;
 }
 
-.menu__list__item__icon {
+.menu__list__item__icon,
+.menu__list__item__icon--active {
 	@apply w-[32px] h-[32px];
+}
+
+.menu__list__item__icon--active {
+	@apply hidden;
 }
 
 .hr {
@@ -71,11 +76,11 @@
 
 /* Navegação de Abas */
 .tab__navegation {
-	@apply flex items-center justify-between h-[86px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] absolute top-[-86px] right-0 w-full -z-10 drop-shadow-lg;
+	@apply flex items-center justify-between h-[78px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] absolute top-[-78px] right-0 w-full z-[1000] lg:z-[1] drop-shadow-lg;
 }
 
 .scroll-content {
-	@apply overflow-y-auto lg:overflow-y-scroll h-full lg:h-[calc(100vh-112px)];
+	@apply overflow-y-auto lg:overflow-y-scroll h-full lg:h-[calc(100vh-78px)];
 }
 
 /* Conteúdo das Abas */
@@ -97,7 +102,7 @@
 
 /* Modal */
 .modal {
-	@apply hidden fixed z-[1000] inset-0 overflow-auto bg-[rgba(0,0,0,0.5)] flex justify-center items-center;
+	@apply hidden fixed z-[1000] inset-0 overflow-auto bg-[rgba(0,0,0,0.5)] justify-center items-center;
 }
 
 .modal-content {
@@ -128,7 +133,7 @@
 	}
 
 	#header {
-		@apply fixed w-[300px] h-[112px] pl-5 bg-[var(--bg-primary)] z-[1000];
+		@apply fixed w-[300px] h-[78px] pl-5 bg-[var(--bg-primary)] z-[1000];
 	}
 
 	.arrow_header_responsive {
@@ -137,14 +142,18 @@
 }
 
 /* Estilo para o estado ativo */
+.menu__list__item {
+	@apply relative;
+}
+
 .menu__list__item__link.active {
-	@apply text-[var(--energy-color)];
+	@apply text-[var(--energy-color)] before:absolute before:left-[-20px] before:w-1 before:h-8 before:bg-[#39441C];
 }
 
-.menu__list__item__link.active::before {
-	@apply absolute left-[-20px] w-1 h-8 bg-[#39441C];
+.menu__list__item__link.active > .menu__list__item__icon {
+	@apply hidden;
 }
 
-.menu__list__item__link.active .menu__list__item__icon {
-	@apply filter brightness-125;
+.menu__list__item__link.active > .menu__list__item__icon--active {
+	@apply block;
 }

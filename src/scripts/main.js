@@ -9,12 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	let touchstartX = 0;
 	let touchendX = 0;
 
-	function toggleClass(elements, className) {
-		elements.forEach(el => el.classList.toggle(className));
-	}
-
 	function showSection(targetId) {
-		document.querySelectorAll('.route').forEach(section => section.classList.add('hidden'));
+		document.querySelectorAll('.route').forEach(function (section) {
+			section.classList.add('hidden');
+		});
 		const targetSection = document.getElementById(targetId);
 		if (targetSection) {
 			targetSection.classList.remove('hidden');
@@ -25,48 +23,58 @@ document.addEventListener('DOMContentLoaded', function () {
 	const hash = window.location.hash.substring(1);
 	if (hash) {
 		showSection(hash);
-		setActiveLink(hash);
+		setActiveLink(hash); // Adiciona a classe .active ao link correspondente ao hash
 	}
 
 	function setActiveLink(targetId) {
-		menuLinks.forEach(link => {
-			link.classList.toggle('active', link.getAttribute('data-target') === targetId);
+		menuLinks.forEach(function (link) {
+			link.classList.remove('active');
+			if (link.getAttribute('data-target') === targetId) {
+				link.classList.add('active');
+			}
 		});
 	}
 
-	menuLinks.forEach(link => {
+	menuLinks.forEach(function (link) {
 		link.addEventListener('click', function (event) {
 			event.preventDefault();
 			const targetId = link.getAttribute('data-target');
 			showSection(targetId);
-			setActiveLink(targetId);
+			setActiveLink(targetId); // Adiciona a classe .active ao link clicado
+			// Atualiza a URL com hash
 			window.location.hash = targetId;
+			// Fecha o sidebar e remove a classe no-scroll
 			closeSidebar();
 		});
 	});
 
 	function toggleVisibility() {
-		toggleClass([header, sidebar, overlay, document.body], 'hidden', 'active', 'no-scroll');
+		header.classList.toggle('hidden');
+		sidebar.classList.toggle('hidden');
+		overlay.classList.toggle('active');
+		document.body.classList.toggle('no-scroll'); // Adiciona ou remove a classe no-scroll
 	}
 
 	function closeSidebar() {
 		header.classList.add('hidden');
 		sidebar.classList.add('hidden');
 		overlay.classList.remove('active');
-		document.body.classList.remove('no-scroll');
+		document.body.classList.remove('no-scroll'); // Remove a classe no-scroll
 		if (arrowHeaderResponsive) {
 			arrowHeaderResponsive.classList.remove('active');
 		}
 	}
 
-	if (menuResponsiveImg.length) {
-		menuResponsiveImg.forEach(img => img.addEventListener('click', toggleVisibility));
+	if (menuResponsiveImg) {
+		menuResponsiveImg.forEach(function (img) {
+			img.addEventListener('click', toggleVisibility);
+		});
 	}
 
 	if (arrowHeaderResponsive) {
 		arrowHeaderResponsive.addEventListener('click', function () {
 			toggleVisibility();
-			this.classList.toggle('active');
+			arrowHeaderResponsive.classList.toggle('active');
 		});
 	}
 
@@ -74,8 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		overlay.addEventListener('click', closeSidebar);
 	}
 
-	// Event delegation for sidebar
-	sidebar.addEventListener('click', closeSidebar);
+	// Fecha o sidebar ao clicar em qualquer item dentro dele
+	sidebar.querySelectorAll('*').forEach(function (item) {
+		item.addEventListener('click', closeSidebar);
+	});
 
 	// Eventos de toque para abrir/fechar o sidebar
 	document.addEventListener('touchstart', function (event) {
@@ -89,8 +99,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function handleGesture() {
 		if (touchendX < touchstartX - 50) {
+			// Deslizar para a esquerda - fechar sidebar
 			closeSidebar();
-		} else if (touchendX > touchstartX + 50) {
+		}
+		if (touchendX > touchstartX + 50) {
+			// Deslizar para a direita - abrir sidebar
 			toggleVisibility();
 		}
 	}
@@ -111,17 +124,22 @@ window.onclick = function (event) {
 }
 
 function submitDocuments() {
+	// Aqui você pode adicionar a lógica para submissão dos documentos
 	closeModal();
 	alert("Documentos enviados com sucesso!");
 }
+
 
 // Seleciona todos os elementos <select> com a classe 'select-toggle'
 const selectElements = document.querySelectorAll('.select-toggle');
 let openSelect = null;
 
 selectElements.forEach(select => {
+	// Adiciona evento de clique para alternar a rotação
 	select.addEventListener('click', function (event) {
+		// Evita o comportamento padrão de rotação do select ao clicar dentro dele
 		event.stopPropagation();
+
 		if (openSelect && openSelect !== this) {
 			openSelect.classList.remove('rotated');
 		}
@@ -130,33 +148,10 @@ selectElements.forEach(select => {
 	});
 });
 
-// Fecha o <select> ao clicar fora
+// Adiciona evento para clique fora dos <select>
 document.addEventListener('mousedown', function (event) {
-	if (openSelect && !openSelect.contains(event.target)) {
+	if (openSelect && !Array.from(selectElements).includes(event.target)) {
 		openSelect.classList.remove('rotated');
 		openSelect = null;
 	}
-});
-document.addEventListener('DOMContentLoaded', function () {
-	function updateInputClass(input) {
-		if (input.value || (input.type === 'file' && input.files.length > 0)) {
-			input.classList.add('filled');
-		} else {
-			input.classList.remove('filled');
-		}
-	}
-
-	const inputs = document.querySelectorAll('.form-input, .form-select');
-
-	inputs.forEach(input => {
-		input.addEventListener('input', function () {
-			updateInputClass(input);
-		});
-	});
-
-	document.querySelectorAll('input[type="file"]').forEach(fileInput => {
-		fileInput.addEventListener('change', function () {
-			updateInputClass(fileInput);
-		});
-	});
 });
