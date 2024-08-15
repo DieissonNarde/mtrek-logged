@@ -179,3 +179,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 });
+
+function showVideo() {
+	document.querySelector('.play-image').classList.add('hidden');
+	document.getElementById('video').classList.remove('hidden');
+}

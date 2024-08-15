@@ -124,3 +124,8 @@ select.rotated {
 	max-width: 180px;
 	width: 100%;
 }
+
+.play-image {
+	position: absolute;
+	z-index: 10;
+}
