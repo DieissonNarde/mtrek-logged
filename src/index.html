@@ -165,6 +165,20 @@
 					<ul class="geral-menu">
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
+								<img src="/src/assets/images/icons/cadastro.png" alt="ícone estatísticas"
+									class="menu__list__item__icon" />
+								<p class="menu__list__item__text">Seu Perfil</p>
+							</a>
+						</li>
+						<li class="menu__list__item relative">
+							<a href="#" class="menu__list__item__link">
+								<img src="/src/assets/images/icons/Site-209.png" alt="ícone estatísticas"
+									class="menu__list__item__icon" />
+								<p class="menu__list__item__text">Blog</p>
+							</a>
+						</li>
+						<li class="menu__list__item relative">
+							<a href="#" class="menu__list__item__link">
 								<img src="/src/assets/images/icons/meu-id.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Meu ID</p>
@@ -382,9 +396,9 @@
 										<b class="font-bold text-black">jpg, .png, .pdf, .doc</b>
 									</p>
 									<form id="documentForm">
-										<div class="modal-section mt-4 mb-16">
-											<img id="frenteImg" src="" alt="Imagem Frente" class="rounded-lg mb-4"
-												style="border: 8px solid #d9d9d9" />
+										<div class="modal-section mt-4 mb-5">
+											<img id="frenteImg" src="assets/images/icons/FRENTE-100.jpg" alt="Imagem Frente"
+												class="rounded-lg mb-4" style="border: 8px solid #d9d9d9" />
 											<input type="file" id="frenteDocumento" name="frenteDocumento" accept=".jpg,.png,.pdf,.doc"
 												onchange="updateFileName('frenteDocumento')" />
 											<label id="frenteLabel" class="button cursor-pointer px-3 py-1" for="frenteDocumento">Enviar
@@ -392,9 +406,9 @@
 											<span id="frenteDocumentoName" class="text-sm text-gray-600 block mt-2 truncate max-w-[204px]"
 												title="Nenhum arquivo selecionado">Nenhum arquivo selecionado</span>
 										</div>
-										<div class="modal-section mt-4 mb-16">
-											<img id="versoImg" class="rounded-lg mb-4" src="" alt="Imagem Verso"
-												style="border: 8px solid #d9d9d9" />
+										<div class="modal-section mt-4 mb-5">
+											<img id="versoImg" class="rounded-lg mb-4" src="assets/images/icons/VERSO-100.jpg"
+												alt="Imagem Verso" style="border: 8px solid #d9d9d9" />
 											<input type="file" id="versoDocumento" name="versoDocumento" accept=".jpg,.png,.pdf,.doc"
 												onchange="updateFileName('versoDocumento')" />
 											<label id="versoLabel" class="button cursor-pointer px-3 py-1" for="versoDocumento">Enviar
@@ -514,8 +528,8 @@
 													<span id="recibo-file-btn-text">Carregar Recibo</span>
 												</label>
 											</div>
-											<button type="submit" id="enviarReciboBtn" style="background: #d9d9d9; color: #000"
-												class="button">
+											<button type="submit" id="enviarReciboBtn" style="background: #d9d9d9; color: #000" class="button"
+												disabled>
 												Enviar Recibo
 											</button>
 										</div>
