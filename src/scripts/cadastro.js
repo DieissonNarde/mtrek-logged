@@ -47,15 +47,27 @@ function toggleSubmitButtonState() {
 function checkDocumentStatus() {
 	const frenteInput = document.getElementById('frenteDocumento');
 	const versoInput = document.getElementById('versoDocumento');
-	isDocumentUploaded = frenteInput.files.length > 0 && versoInput.files.length > 0;
+	const isDocumentUploaded = frenteInput.files.length > 0 && versoInput.files.length > 0;
 
-	// Atualiza o botão "Carregar documento de identidade"
-	document.getElementById('loadDocumentsBtn').textContent = isDocumentUploaded ? 'Documento de identidade carregado' : 'Carregar documento de identidade';
-	document.getElementById('loadDocumentsBtn').style.background = isDocumentUploaded ? '#5F7336' : '';
+	const loadDocumentsBtn = document.getElementById('loadDocumentsBtn');
+	const submitDocumentsBtn = document.getElementById('submitDocumentsBtn');
+
+	if (isDocumentUploaded) {
+		loadDocumentsBtn.textContent = 'Documento de identidade carregado';
+		loadDocumentsBtn.style.background = '#5F7336';
+		loadDocumentsBtn.style.color = '#ffff';
+		loadDocumentsBtn.style.border = 'none';
+	} else {
+		loadDocumentsBtn.textContent = 'Carregar documento de identidade';
+		loadDocumentsBtn.style.background = '';
+		loadDocumentsBtn.style.color = '';
+		loadDocumentsBtn.style.border = '';
+	}
+
 	toggleCadastroSubmitButton();
-
-	document.getElementById('submitDocumentsBtn').disabled = !isDocumentUploaded;
+	submitDocumentsBtn.disabled = !isDocumentUploaded;
 }
+
 
 function toggleCadastroSubmitButton() {
 	const isValid = document.getElementById('cadastroForm').checkValidity() && isDocumentUploaded;
@@ -167,6 +179,8 @@ function updateInputStyles(inputId, file) {
 
 	imgElement.style.border = file ? '8px solid #5F7336' : '8px solid #D9D9D9';
 	labelElement.style.background = file ? '#5F7336' : '';
+	labelElement.style.color = file ? '#ffff' : '';
+	labelElement.style.border = file ? 'none' : '';
 	labelElement.textContent = file ? 'Carregado' : `Enviar ${isFrente ? 'Frente' : 'Verso'}`;
 }
 
@@ -225,6 +239,7 @@ function updateButtonState(buttonId, isEnabled, text = null) {
 	button.disabled = !isEnabled;
 	button.style.background = isEnabled ? '#5F7336' : '#D9D9D9';
 	button.style.color = isEnabled ? '#ffffff' : '#000000';
+	button.style.border = isEnabled ? 'none' : '';
 
 	if (text !== null) button.textContent = text;
 }
@@ -234,6 +249,7 @@ function setFieldValidity(el) {
 		const isValid = el.value.trim() !== '';
 		el.setCustomValidity(isValid ? '' : 'Este campo é obrigatório');
 		el.style.borderColor = isValid ? '#5F7336' : '#D9D9D9';
+
 	}
 }
 

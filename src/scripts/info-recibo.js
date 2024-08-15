@@ -10,6 +10,7 @@ function toggleReciboSubmitButton() {
 	submitButton.disabled = !isValid;
 	submitButton.style.background = isValid ? '#5F7336' : '#D9D9D9';
 	submitButton.style.color = isValid ? '#ffff' : '#000';
+	submitButton.style.border = isValid ? 'none' : '';
 
 	// Estiliza os campos de entrada e selects
 	const fields = ['data_envio', 'recibo-distribuidora'];
@@ -33,6 +34,7 @@ function updateReciboFileName(input) {
 	// Estiliza o botão de upload com base na presença de um arquivo
 	fileBtn.style.backgroundColor = file ? '#5F7336' : '#D9D9D9';
 	fileBtn.style.color = file ? '#fff' : '#000';
+	fileBtn.style.border = file ? 'none' : '';
 }
 
 // Função para lidar com o envio do formulário no reciboForm
@@ -71,6 +73,7 @@ function submitReciboForm(event) {
 		const fileBtn = document.getElementById('recibo-file-btn');
 		fileBtn.style.backgroundColor = ''; // Cor roxa
 		fileBtn.style.color = ''; // Texto branco
+		fileBtn.style.border = '';
 
 		toggleReciboSubmitButton();
 		isReciboProcessing = false;

@@ -155,3 +155,27 @@ document.addEventListener('mousedown', function (event) {
 		openSelect = null;
 	}
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+	function updateInputClass(input) {
+		if (input.value || (input.type === 'file' && input.files.length > 0)) {
+			input.classList.add('filled');
+		} else {
+			input.classList.remove('filled');
+		}
+	}
+
+	const inputs = document.querySelectorAll('.form-input, .form-select');
+
+	inputs.forEach(input => {
+		input.addEventListener('input', function () {
+			updateInputClass(input);
+		});
+	});
+
+	document.querySelectorAll('input[type="file"]').forEach(fileInput => {
+		fileInput.addEventListener('change', function () {
+			updateInputClass(fileInput);
+		});
+	});
+});
