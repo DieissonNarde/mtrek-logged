@@ -26,7 +26,7 @@
 
 /* Menu */
 .menu {
-	@apply pr-3 pl-5 lg:py-5  pt-5 pb-10 overflow-y-scroll h-[calc(100vh-78px)] z-[1001] lg:z-10;
+	@apply pr-3 pl-5 lg:py-5 pt-5 pb-16 overflow-y-scroll h-[calc(100vh-78px)] z-[1001] lg:z-10;
 }
 
 .menu__list {
