@@ -12,7 +12,7 @@
 
 /* Header */
 .header {
-	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-10;
+	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[9999];
 }
 
 /* Avatar */
