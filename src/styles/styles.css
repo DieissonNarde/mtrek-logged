@@ -38,7 +38,7 @@
 }
 
 .menu__list__item__link {
-	@apply flex items-center gap-1 w-fit;
+	@apply flex items-center gap-1 w-fit transition-all ease-in-out;
 }
 
 .menu__list__item__icon,
