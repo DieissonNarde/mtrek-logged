@@ -28,7 +28,7 @@
 
 .header {
   position: relative;
-  z-index: 9999;
+  z-index: 998;
   display: flex;
   height: 78px;
   max-width: -moz-fit-content;
@@ -341,6 +341,11 @@
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     cursor: pointer;
   }
+
+  .arrow_header_responsive:hover {
+    scale: 1.05;
+    transition: transform 0.3s ease-in-out;
+  }
 }
 
 /* Estilo para o estado ativo */
@@ -506,6 +511,8 @@
 }
 
 .notification:hover {
+  scale: 1.05;
+  transition: transform 0.3s ease-in-out;
   --tw-translate-y: -0.25rem;
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -1735,6 +1742,11 @@ select.rotated {
 
 .play-image {
   z-index: 10;
+}
+
+.cursor-pointer:hover {
+  scale: 1.05;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hover\:text-white:hover {

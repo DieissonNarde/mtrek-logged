@@ -12,7 +12,7 @@
 
 /* Header */
 .header {
-	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[9999];
+	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[998];
 }
 
 /* Avatar */
@@ -97,7 +97,7 @@
 }
 
 .tab__content__form {
-	@apply w-full lg:w-[55%] ;
+	@apply w-full lg:w-[55%];
 }
 
 /* Modal */
