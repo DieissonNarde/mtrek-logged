@@ -178,9 +178,6 @@ function updateInputStyles(inputId, file) {
 	const labelElement = document.getElementById(isFrente ? 'frenteLabel' : 'versoLabel');
 
 	imgElement.style.border = file ? '8px solid #5F7336' : '8px solid #D9D9D9';
-	labelElement.style.background = file ? '#5F7336' : '';
-	labelElement.style.color = file ? '#ffff' : '';
-	labelElement.style.border = file ? 'none' : '';
 	labelElement.textContent = file ? 'Carregado' : `Enviar ${isFrente ? 'Frente' : 'Verso'}`;
 }
 
@@ -190,28 +187,31 @@ function resetInput(input, inputId) {
 }
 
 // Remove a função duplicada toggleSubmitButtonState()
+function submitCadastroForm(event) {
+	event.preventDefault(); // Previne o envio do formulário padrão
 
-function submitDocuments(event) {
-	event.preventDefault();
+	// Use event.currentTarget para garantir que você está se referindo ao formulário
+	const form = event.currentTarget;
 
-	const form = event.target;
-	const frenteInput = document.getElementById('frenteDocumento');
-	const versoInput = document.getElementById('versoDocumento');
+	const frenteInput = document.getElementById('cadastro-recibo');
+	// Não há versoInput no HTML fornecido, ajuste conforme necessário
 
-	// Verifica se os arquivos foram selecionados ANTES de enviar
-	if (!frenteInput.files.length || !versoInput.files.length) {
-		alert("Por favor, selecione tanto o documento da frente quanto o verso.");
+	// Verifica se o arquivo foi selecionado ANTES de enviar
+	if (!frenteInput.files.length) {
+		alert("Por favor, selecione o documento da frente.");
 		return; // Impede o envio do formulário se não houver arquivos
 	}
 
-	if (areFilesEqual(frenteInput.files[0], versoInput.files[0])) {
-		alert("O mesmo arquivo não pode ser selecionado para ambos os campos.");
-		return; // Impede o envio se os arquivos forem iguais
-	}
+	// Adapte a verificação de arquivos conforme necessário se houver mais campos
+	// if (areFilesEqual(frenteInput.files[0], versoInput.files[0])) {
+	//     alert("O mesmo arquivo não pode ser selecionado para ambos os campos.");
+	//     return; // Impede o envio se os arquivos forem iguais
+	// }
 
-	updateButtonState('submitDocumentsBtn', false, "Enviando...");
+	updateButtonState('cadastro-enviarBtn', false, "Enviando...");
 
-	console.log('Documentos Enviados:', new FormData(form).entries());
+	const formData = new FormData(form);
+	console.log('Documentos Enviados:', [...formData.entries()]);
 
 	simulateBackendOperation(() => {
 		alert('Documentos enviados com sucesso!');
@@ -220,6 +220,7 @@ function submitDocuments(event) {
 		closeModal();
 	});
 }
+
 
 function resetFormAndButtons(form) {
 	form.reset();
@@ -236,13 +237,24 @@ function resetFormAndButtons(form) {
 function updateButtonState(buttonId, isEnabled, text = null) {
 	const button = document.getElementById(buttonId);
 
+	// Habilita ou desabilita o botão
 	button.disabled = !isEnabled;
-	button.style.background = isEnabled ? '#5F7336' : '#D9D9D9';
-	button.style.color = isEnabled ? '#ffffff' : '#000000';
-	button.style.border = isEnabled ? 'none' : '';
 
-	if (text !== null) button.textContent = text;
+	// Adiciona ou remove as classes de acordo com o estado do botão
+	if (isEnabled) {
+		button.classList.remove('button_disabled');
+		button.classList.add('button_enabled');
+	} else {
+		button.classList.remove('button_enabled');
+		button.classList.add('button_disabled');
+	}
+
+	// Atualiza o texto do botão, se fornecido
+	if (text !== null) {
+		button.textContent = text;
+	}
 }
+
 
 function setFieldValidity(el) {
 	if (el) {

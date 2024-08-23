@@ -8,9 +8,13 @@ function toggleReciboSubmitButton() {
 
 	// Estiliza o botão de envio
 	submitButton.disabled = !isValid;
-	submitButton.style.background = isValid ? '#5F7336' : '#D9D9D9';
-	submitButton.style.color = isValid ? '#ffff' : '#000';
-	submitButton.style.border = isValid ? 'none' : '';
+	if (isValid) {
+		submitButton.classList.remove('button_disabled');
+		submitButton.classList.add('button_enabled');
+	} else {
+		submitButton.classList.remove('button_enabled');
+		submitButton.classList.add('button_disabled');
+	}
 
 	// Estiliza os campos de entrada e selects
 	const fields = ['data_envio', 'recibo-distribuidora'];
@@ -60,22 +64,24 @@ function submitReciboForm(event) {
 		console.log('Simulação de envio bem-sucedido.');
 		alert('Formulário de Recibo enviado com sucesso!');
 
+		// Reseta o formulário
 		form.reset();
 		document.getElementById('recibo-file-name-placeholder').textContent = 'Tipos permitidos: .jpg, .png, .pdf, .doc';
 
-		// Altera o texto do botão de upload
-		const fileBtnText = document.getElementById('recibo-file-btn-text');
-		if (fileBtnText) {
-			fileBtnText.textContent = 'Carregar outro';
-		}
-
 		// Atualiza os estilos após o envio
 		const fileBtn = document.getElementById('recibo-file-btn');
-		fileBtn.style.backgroundColor = ''; // Cor roxa
-		fileBtn.style.color = ''; // Texto branco
+		fileBtn.style.backgroundColor = ''; // Reseta a cor do botão de upload
+		fileBtn.style.color = ''; // Reseta a cor do texto do botão de upload
 		fileBtn.style.border = '';
 
+		// Reativar o botão de envio e resetar as classes
 		toggleReciboSubmitButton();
+
+		// Reativar o botão se ele for desabilitado após o reset
+		document.getElementById('enviarReciboBtn').disabled = true;
+		document.getElementById('enviarReciboBtn').classList.remove('button_enabled');
+		document.getElementById('enviarReciboBtn').classList.add('button_disabled');
+
 		isReciboProcessing = false;
 	}, 1000);
 }

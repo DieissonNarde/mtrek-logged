@@ -167,6 +167,12 @@
 										alt="ícone cadastro"
 										class="menu__list__item__icon"
 									/>
+									<img
+										src="/src/assets/images/icons/cadastro-selected.png"
+										alt="ícone cadastro"
+										class="menu__list__item__icon--active"
+									/>
+
 									<p class="menu__list__item__text">Cadastro</p>
 								</a>
 							</li>
@@ -182,7 +188,11 @@
 										alt="ícone recibo"
 										class="menu__list__item__icon"
 									/>
-
+									<img
+										src="/src/assets/images/icons/recibo-selected.png"
+										alt="ícone recibo"
+										class="menu__list__item__icon--active"
+									/>
 									<p class="menu__list__item__text">Informe de Recibo</p>
 								</a>
 								<hr class="hr" />
@@ -381,13 +391,13 @@
 					<main class="tab">
 						<div class="mx-auto">
 							<img
-								class="hidden lg:block"
-								src="/src/assets/images/banners/mercador-de-energia-banner-2.png"
+								class="hidden lg:block rounded-3xl"
+								src="/src/assets/images/banners/mercador-de-energia-banner-2.jpg"
 								alt="Banner sobre o mercado livre de energia"
 							/>
 							<img
-								class="block lg:hidden"
-								src="/src/assets/images/banners/mercado-de-energia-mobile.png"
+								class="block lg:hidden rounded-3xl max-h-[810px]"
+								src="/src/assets/images/banners/mercado-de-energia-mobile.jpg"
 								alt="Banner mobile"
 							/>
 						</div>
@@ -400,12 +410,12 @@
 									</h2>
 								</header>
 								<div
-									class="bg-white drop-shadow-lg rounded-[0px_0px_20px_20px] h-[512px] items-center flex justify-center relative p-10"
+									class="bg-white drop-shadow-lg rounded-[0px_0px_20px_20px] items-center flex justify-center p-5 h-[545px]"
 								>
 									<img
 										src="/src/assets/images/banners/mercado-de-energia-mobile.png"
 										alt="Play Video"
-										class="play-image w-[319px] cursor-pointer"
+										class="play-image cursor-pointer w-80"
 										onclick="showVideo()"
 									/>
 									<iframe
@@ -414,7 +424,7 @@
 										title="YouTube video player"
 										frameborder="0"
 										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-										class="w-full h-full hidden m-10 rounded-[20px]"
+										class="w-80 h-[450px] hidden m-10 rounded-[20px]"
 									></iframe>
 								</div>
 							</div>
@@ -580,10 +590,9 @@
 													</button>
 												</div>
 												<button
-													class="button"
+													class="button_disabled"
 													type="submit"
 													id="cadastro-enviarBtn"
-													style="background: #d9d9d9; color: #000"
 												>
 													Enviar
 												</button>
@@ -603,10 +612,7 @@
 											Carregar Documento de Identidade
 										</h2>
 										<span class="close cursor-pointer" onclick="closeModal()">
-											<img
-												src="/src/assets/images/icons/fechar.png"
-												alt="Fechar Modal"
-											/>
+											<img src="/src/assets/images/icons/fechar.png" alt="" />
 										</span>
 									</div>
 									<div
@@ -676,9 +682,8 @@
 											</div>
 											<button
 												id="submitDocumentsBtn"
-												class="button"
+												class="button_disabled"
 												type="button"
-												style="background: #d9d9d9; color: #000"
 											>
 												Enviar
 											</button>
@@ -854,8 +859,7 @@
 												<button
 													type="submit"
 													id="enviarReciboBtn"
-													style="background: #d9d9d9; color: #000"
-													class="button"
+													class="button_disabled"
 													disabled
 												>
 													Enviar Recibo
