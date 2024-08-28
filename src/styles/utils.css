@@ -28,7 +28,8 @@
 	@apply bg-[var(--bg-primary)] text-white font-semibold md:font-black text-sm md:text-base py-1 w-full rounded-lg border border-transparent hover:bg-transparent hover:border-[var(--bg-primary)] hover:text-black transition-all duration-200;
 }
 
-.button[disabled] {
+.button[disabled],
+#cadastro-recibo[disabled] + label.button {
 	@apply hover:border-transparent cursor-not-allowed;
 }
 

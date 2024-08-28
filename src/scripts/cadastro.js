@@ -1,28 +1,39 @@
 let isCadastroProcessing = false;
 let isDocumentUploaded = false;
 
-document.addEventListener('DOMContentLoaded', () => {
-	const cadastroForm = document.getElementById('cadastroForm');
-	const frenteInput = document.getElementById('frenteDocumento');
-	const versoInput = document.getElementById('versoDocumento');
+document.addEventListener("DOMContentLoaded", () => {
+	const cadastroForm = document.getElementById("cadastroForm");
+	const frenteInput = document.getElementById("frenteDocumento");
+	const versoInput = document.getElementById("versoDocumento");
+
+	// Campos de Nome e Sobrenome
+	const nomeInput = document.getElementById("nome");
+	const sobrenomeInput = document.getElementById("sobrenome");
+
+	// Validar campos de nome e sobrenome para impedir números
+	[nomeInput, sobrenomeInput].forEach((input) => {
+		input.addEventListener("input", validateTextFields);
+	});
 
 	if (cadastroForm) {
-		cadastroForm.addEventListener('input', toggleCadastroSubmitButton);
-		document.getElementById('cadastro-recibo').addEventListener('change', updateCadastroFileName);
-		cadastroForm.addEventListener('submit', submitCadastroForm);
+		cadastroForm.addEventListener("input", toggleCadastroSubmitButton);
+		document
+			.getElementById("cadastro-recibo")
+			.addEventListener("change", updateCadastroFileName);
+		cadastroForm.addEventListener("submit", submitCadastroForm);
 	}
 
 	if (frenteInput && versoInput) {
-		frenteInput.addEventListener('change', handleDocumentChange);
-		versoInput.addEventListener('change', handleDocumentChange);
+		frenteInput.addEventListener("change", handleDocumentChange);
+		versoInput.addEventListener("change", handleDocumentChange);
 	}
 
-	document.getElementById('cadastro-enviarBtn').disabled = true;
+	document.getElementById("cadastro-enviarBtn").disabled = true;
+	document.getElementById("submitDocumentsBtn").disabled = true;
+	document
+		.getElementById("submitDocumentsBtn")
+		.addEventListener("click", submitDocuments);
 
-	document.getElementById('submitDocumentsBtn').disabled = true;
-	document.getElementById('submitDocumentsBtn').addEventListener('click', submitDocuments);
-
-	// Fecha o modal quando clicar fora dele
 	window.onclick = (event) => {
 		const modal = document.getElementById("idModal");
 		if (event.target === modal) {
@@ -31,6 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 });
 
+// Validação dos campos de texto
+function validateTextFields(event) {
+	const input = event.target;
+	const regex = /^[A-Za-z\s]*$/;
+
+	if (!regex.test(input.value)) {
+		input.value = input.value.replace(/[^A-Za-z\s]/g, "");
+	}
+}
+
 function handleDocumentChange() {
 	updateFileName(this.id);
 	toggleSubmitButtonState();
@@ -38,62 +59,94 @@ function handleDocumentChange() {
 }
 
 function toggleSubmitButtonState() {
-	const isFilesSelected = document.getElementById('frenteDocumento').files.length > 0 &&
-		document.getElementById('versoDocumento').files.length > 0;
+	const isFilesSelected =
+		document.getElementById("frenteDocumento").files.length > 0 &&
+		document.getElementById("versoDocumento").files.length > 0;
 
-	updateButtonState('submitDocumentsBtn', isFilesSelected);
+	updateButtonState("submitDocumentsBtn", isFilesSelected);
 }
 
 function checkDocumentStatus() {
-	const frenteInput = document.getElementById('frenteDocumento');
-	const versoInput = document.getElementById('versoDocumento');
-	const isDocumentUploaded = frenteInput.files.length > 0 && versoInput.files.length > 0;
+	const frenteInput = document.getElementById("frenteDocumento");
+	const versoInput = document.getElementById("versoDocumento");
+	isDocumentUploaded =
+		frenteInput.files.length > 0 && versoInput.files.length > 0;
 
-	const loadDocumentsBtn = document.getElementById('loadDocumentsBtn');
-	const submitDocumentsBtn = document.getElementById('submitDocumentsBtn');
+	const loadDocumentsBtn = document.getElementById("loadDocumentsBtn");
+	const submitDocumentsBtn = document.getElementById("submitDocumentsBtn");
 
 	if (isDocumentUploaded) {
-		loadDocumentsBtn.textContent = 'Documento de identidade carregado';
-		loadDocumentsBtn.style.background = '#5F7336';
-		loadDocumentsBtn.style.color = '#ffff';
-		loadDocumentsBtn.style.border = 'none';
+		loadDocumentsBtn.textContent = "Documento de identidade carregado";
+		loadDocumentsBtn.style.background = "#5F7336";
+		loadDocumentsBtn.style.color = "#fff";
+		loadDocumentsBtn.style.border = "none";
+		loadDocumentsBtn.disabled = true;
 	} else {
-		loadDocumentsBtn.textContent = 'Carregar documento de identidade';
-		loadDocumentsBtn.style.background = '';
-		loadDocumentsBtn.style.color = '';
-		loadDocumentsBtn.style.border = '';
+		loadDocumentsBtn.textContent = "Carregar documento de identidade";
+		loadDocumentsBtn.style.background = "";
+		loadDocumentsBtn.style.color = "";
+		loadDocumentsBtn.style.border = "";
 	}
 
 	toggleCadastroSubmitButton();
 	submitDocumentsBtn.disabled = !isDocumentUploaded;
 }
 
-
 function toggleCadastroSubmitButton() {
-	const isValid = document.getElementById('cadastroForm').checkValidity() && isDocumentUploaded;
-	const submitButtons = document.querySelectorAll('button[type="submit"]');
+	const isValid =
+		document.getElementById("cadastroForm").checkValidity() &&
+		isDocumentUploaded;
+	const submitButton = document.getElementById("cadastro-enviarBtn");
 
-	submitButtons.forEach(button => {
-		button.style.background = isValid ? '' : '#D9D9D9';
-		button.style.color = isValid ? '' : '#000000';
+	// Atualiza o estado do botão com base na validade do formulário
+	submitButton.disabled = !isValid;
+	submitButton.style.background = isValid ? "" : "#D9D9D9";
+	submitButton.style.color = isValid ? "" : "#000000";
+
+	// Atualiza o estado de outros botões de envio, se necessário
+	const otherSubmitButtons = document.querySelectorAll(
+		'button[type="submit"]:not(#cadastro-enviarBtn)'
+	);
+
+	otherSubmitButtons.forEach((button) => {
+		button.style.background = isValid ? "" : "#D9D9D9";
+		button.style.color = isValid ? "" : "#000000";
 		button.disabled = !isValid;
 	});
 
-	const fields = ['nome', 'sobrenome', 'estado', 'distribuidora'];
-	fields.forEach(field => {
+	// Atualiza a validade dos campos obrigatórios
+	const fields = ["nome", "sobrenome", "estado", "distribuidora"];
+	fields.forEach((field) => {
 		const el = document.getElementById(field);
 		setFieldValidity(el);
 	});
 }
 
-
 function updateCadastroFileName(event) {
 	const file = event.target.files[0];
 	const isFileSelected = !!file;
-	const fileName = isFileSelected ? file.name : 'Tipos permitidos: .jpg, .png, .pdf, .doc';
+	const fileName = isFileSelected
+		? file.name
+		: "Tipos permitidos: .jpg, .png, .pdf, .doc";
 
-	document.getElementById('cadastro-file-name-placeholder').textContent = fileName;
-	updateButtonState('loadEnergyBillBtn', isFileSelected, 'Conta de energia carregada', 'Carregar conta de energia');
+	document.getElementById("cadastro-file-name-placeholder").textContent =
+		fileName;
+
+	if (event.target.id === "cadastro-recibo") {
+		updateButtonState("cadastro-recibo", false);
+		updateButtonState(
+			"loadEnergyBillBtn",
+			isFileSelected,
+			"Conta de energia carregada",
+			"#5F7336" // Define a cor verde quando o arquivo é carregado
+		);
+	} else {
+		updateButtonState(
+			"loadDocumentsBtn",
+			isFileSelected,
+			"Documento de identidade carregado"
+		);
+	}
 }
 
 function submitCadastroForm(event) {
@@ -101,32 +154,31 @@ function submitCadastroForm(event) {
 	isCadastroProcessing = true;
 	event.preventDefault();
 
-	const submitBtn = document.getElementById('cadastro-enviarBtn')
-	const documentsBtn = document.getElementById('loadDocumentsBtn')
-	const BillBtn = document.getElementById('loadEnergyBillBtn')
+	const submitBtn = document.getElementById("cadastro-enviarBtn");
+	const documentsBtn = document.getElementById("loadDocumentsBtn");
+	const billBtn = document.getElementById("loadEnergyBillBtn");
 
 	const form = event.target;
-	const idForm = document.getElementById('documentForm')
-	updateButtonState('cadastro-enviarBtn', false, 'Enviando...');
+	updateButtonState("cadastro-enviarBtn", false, "Enviando...");
 
-	console.log('Dados do Formulário Cadastro:', new FormData(form).entries());
+	console.log("Dados do Formulário Cadastro:", new FormData(form).entries());
 
 	simulateBackendOperation(() => {
 		form.reset();
 
-		['frenteDocumento', 'versoDocumento'].forEach(id => updateFileName(id));
+		["frenteDocumento", "versoDocumento"].forEach((id) => updateFileName(id));
 
 		openStep2Modal(); // Aqui você deve abrir o próximo passo do seu formulário
 
-		submitBtn.textContent = "Enviar"
+		submitBtn.textContent = "Enviar";
 
-		documentsBtn.textContent = "Enviar documento de identidade"
-		documentsBtn.style.background = ""
-		documentsBtn.disabled = false
+		documentsBtn.textContent = "Enviar documento de identidade";
+		documentsBtn.style.background = "";
+		documentsBtn.disabled = false;
 
-		BillBtn.textContent = "Carregar conta de energia"
-		BillBtn.style.background = ""
-		BillBtn.disabled = false
+		billBtn.textContent = "Carregar conta de energia";
+		billBtn.style.background = "";
+		billBtn.disabled = false;
 
 		isCadastroProcessing = false;
 		isDocumentUploaded = false;
@@ -148,7 +200,8 @@ function closeModal() {
 function updateFileName(inputId) {
 	const input = document.getElementById(inputId);
 	const file = input.files[0];
-	const otherInputId = inputId === 'frenteDocumento' ? 'versoDocumento' : 'frenteDocumento';
+	const otherInputId =
+		inputId === "frenteDocumento" ? "versoDocumento" : "frenteDocumento";
 	const otherInput = document.getElementById(otherInputId);
 	const otherFile = otherInput.files[0];
 
@@ -164,7 +217,9 @@ function updateFileName(inputId) {
 
 function updateSpanAndStyles(inputId, file) {
 	const span = document.getElementById(`${inputId}Name`);
-	const fileName = file ? truncateFileName(file.name) : 'Nenhum arquivo selecionado';
+	const fileName = file
+		? truncateFileName(file.name)
+		: "Nenhum arquivo selecionado";
 
 	span.textContent = fileName;
 	span.title = fileName;
@@ -173,68 +228,42 @@ function updateSpanAndStyles(inputId, file) {
 }
 
 function updateInputStyles(inputId, file) {
-	const isFrente = inputId === 'frenteDocumento';
-	const imgElement = document.getElementById(isFrente ? 'frenteImg' : 'versoImg');
-	const labelElement = document.getElementById(isFrente ? 'frenteLabel' : 'versoLabel');
+	const isFrente = inputId === "frenteDocumento";
+	const imgElement = document.getElementById(
+		isFrente ? "frenteImg" : "versoImg"
+	);
+	const labelElement = document.getElementById(
+		isFrente ? "frenteLabel" : "versoLabel"
+	);
 
-	imgElement.style.border = file ? '8px solid #5F7336' : '8px solid #D9D9D9';
-	labelElement.textContent = file ? 'Carregado' : `Enviar ${isFrente ? 'Frente' : 'Verso'}`;
+	imgElement.style.border = file ? "8px solid #5F7336" : "8px solid #D9D9D9";
+	labelElement.textContent = file
+		? "Carregado"
+		: `Enviar ${isFrente ? "Frente" : "Verso"}`;
+	labelElement.style.background = file ? "#5F7336" : "";
 }
 
 function resetInput(input, inputId) {
-	input.value = '';
+	input.value = "";
 	updateSpanAndStyles(inputId, null);
 }
-
-// Remove a função duplicada toggleSubmitButtonState()
-function submitCadastroForm(event) {
-	event.preventDefault(); // Previne o envio do formulário padrão
-
-	// Use event.currentTarget para garantir que você está se referindo ao formulário
-	const form = event.currentTarget;
-
-	const frenteInput = document.getElementById('cadastro-recibo');
-	// Não há versoInput no HTML fornecido, ajuste conforme necessário
-
-	// Verifica se o arquivo foi selecionado ANTES de enviar
-	if (!frenteInput.files.length) {
-		alert("Por favor, selecione o documento da frente.");
-		return; // Impede o envio do formulário se não houver arquivos
-	}
-
-	// Adapte a verificação de arquivos conforme necessário se houver mais campos
-	// if (areFilesEqual(frenteInput.files[0], versoInput.files[0])) {
-	//     alert("O mesmo arquivo não pode ser selecionado para ambos os campos.");
-	//     return; // Impede o envio se os arquivos forem iguais
-	// }
-
-	updateButtonState('cadastro-enviarBtn', false, "Enviando...");
-
-	const formData = new FormData(form);
-	console.log('Documentos Enviados:', [...formData.entries()]);
-
-	simulateBackendOperation(() => {
-		alert('Documentos enviados com sucesso!');
-		updateButtonState('loadDocumentsBtn', true, 'Documento de identidade carregado');
-		resetFormAndButtons(form);
-		closeModal();
-	});
-}
-
 
 function resetFormAndButtons(form) {
 	form.reset();
 
-	['frenteDocumento', 'versoDocumento'].forEach(id => updateFileName(id));
-	updateButtonState('loadEnergyBillBtn', false, 'Carregar conta de energia');
-	// Mantém o estado do botão "Carregar documento de identidade"
-	// updateButtonState('loadDocumentsBtn', false, 'Carregar documento de identidade'); 
-	updateButtonState('submitDocumentsBtn', false, 'Enviar');
-	updateButtonState('cadastro-enviarBtn', true, 'Enviar');
+	["frenteDocumento", "versoDocumento"].forEach((id) => updateFileName(id));
+	updateButtonState("loadEnergyBillBtn", false, "Carregar conta de energia");
+	updateButtonState(
+		"loadDocumentsBtn",
+		false,
+		"Carregar documento de identidade"
+	);
+	updateButtonState("submitDocumentsBtn", false, "Enviar");
+	updateButtonState("cadastro-enviarBtn", true, "Enviar");
 	isDocumentUploaded = false;
 }
 
-function updateButtonState(buttonId, isEnabled, text = null) {
+function updateButtonState(buttonId, isEnabled, text = null, color = null) {
 	const button = document.getElementById(buttonId);
 
 	// Habilita ou desabilita o botão
@@ -242,52 +271,57 @@ function updateButtonState(buttonId, isEnabled, text = null) {
 
 	// Adiciona ou remove as classes de acordo com o estado do botão
 	if (isEnabled) {
-		button.classList.remove('button_disabled');
-		button.classList.add('button_enabled');
+		button.disabled = false;
+		button.classList.remove("button_disabled");
+		button.classList.add("button_enabled");
 	} else {
-		button.classList.remove('button_enabled');
-		button.classList.add('button_disabled');
+		button.disabled = true;
+		button.classList.remove("button_enabled");
+		button.classList.add("button_disabled");
 	}
 
 	// Atualiza o texto do botão, se fornecido
 	if (text !== null) {
 		button.textContent = text;
 	}
-}
 
+	// Atualiza a cor do botão, se fornecida
+	if (color !== null) {
+		button.style.background = color;
+		button.style.color = "#fff"; // Muda a cor do texto para branco
+	}
+}
 
 function setFieldValidity(el) {
 	if (el) {
-		const isValid = el.value.trim() !== '';
-		el.setCustomValidity(isValid ? '' : 'Este campo é obrigatório');
-		el.style.borderColor = isValid ? '#5F7336' : '#D9D9D9';
-
+		const isValid = el.value.trim() !== "";
+		el.setCustomValidity(isValid ? "" : "Este campo é obrigatório");
+		el.style.borderColor = isValid ? "#5F7336" : "#D9D9D9";
 	}
 }
 
 function areFilesEqual(file1, file2) {
-	return file1 && file2 && file1.name === file2.name && file1.size === file2.size;
+	return (
+		file1 && file2 && file1.name === file2.name && file1.size === file2.size
+	);
 }
 
 function truncateFileName(fileName, maxLength = 30) {
 	if (fileName.length > maxLength) {
-		const extIndex = fileName.lastIndexOf('.');
-		const extension = extIndex !== -1 ? fileName.slice(extIndex) : '';
+		const extIndex = fileName.lastIndexOf(".");
+		const extension = extIndex !== -1 ? fileName.slice(extIndex) : "";
 		const truncated = fileName.slice(0, maxLength - extension.length - 3);
 		return `${truncated}...${extension}`;
 	}
 	return fileName;
 }
 
-// Adicione esta função para abrir o próximo passo do formulário
 function openStep2Modal() {
-	const step2modal = document.getElementById("step2Modal");
-
-	step2modal.style.display = "flex";
+	const step2Modal = document.getElementById("step2Modal");
+	step2Modal.style.display = "flex";
 }
 
 function closeStep2Modal() {
-	const step2modal = document.getElementById("step2Modal");
-
-	step2modal.style.display = "none";
+	const step2Modal = document.getElementById("step2Modal");
+	step2Modal.style.display = "none";
 }
