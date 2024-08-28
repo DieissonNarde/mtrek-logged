@@ -1546,6 +1546,14 @@ body {
   /* Permite rolagem vertical no sidebar */
 }
 
+/*Documento*/
+
+.button_valido {
+  background: #5f7336 !important;
+  color: white !important;
+  border: none;
+}
+
 .button_disabled {
   width: 100%;
   border-radius: 0.5rem;

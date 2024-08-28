@@ -125,9 +125,9 @@ function toggleCadastroSubmitButton() {
 function updateCadastroFileName(event) {
 	const file = event.target.files[0];
 	const isFileSelected = !!file;
-	const fileName = isFileSelected
-		? file.name
-		: "Tipos permitidos: .jpg, .png, .pdf, .doc";
+	const fileName = isFileSelected ?
+		file.name :
+		"Tipos permitidos: .jpg, .png, .pdf, .doc";
 
 	document.getElementById("cadastro-file-name-placeholder").textContent =
 		fileName;
@@ -217,9 +217,9 @@ function updateFileName(inputId) {
 
 function updateSpanAndStyles(inputId, file) {
 	const span = document.getElementById(`${inputId}Name`);
-	const fileName = file
-		? truncateFileName(file.name)
-		: "Nenhum arquivo selecionado";
+	const fileName = file ?
+		truncateFileName(file.name) :
+		"Nenhum arquivo selecionado";
 
 	span.textContent = fileName;
 	span.title = fileName;
@@ -236,12 +236,19 @@ function updateInputStyles(inputId, file) {
 		isFrente ? "frenteLabel" : "versoLabel"
 	);
 
+	// Atualiza a borda da imagem
 	imgElement.style.border = file ? "8px solid #5F7336" : "8px solid #D9D9D9";
-	labelElement.textContent = file
-		? "Carregado"
-		: `Enviar ${isFrente ? "Frente" : "Verso"}`;
-	labelElement.style.background = file ? "#5F7336" : "";
+
+	// Atualiza o texto e a classe do label
+	if (file) {
+		labelElement.textContent = "Carregado";
+		labelElement.classList.add("button_valido");
+	} else {
+		labelElement.textContent = `Enviar ${isFrente ? "Frente" : "Verso"}`;
+		labelElement.classList.remove("button_valido");
+	}
 }
+
 
 function resetInput(input, inputId) {
 	input.value = "";
