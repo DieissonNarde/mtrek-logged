@@ -167,6 +167,12 @@
 										alt="ícone cadastro"
 										class="menu__list__item__icon"
 									/>
+									<img
+										src="/src/assets/images/icons/cadastro-selected.png"
+										alt="ícone cadastro"
+										class="menu__list__item__icon--active"
+									/>
+
 									<p class="menu__list__item__text">Cadastro</p>
 								</a>
 							</li>
@@ -181,6 +187,11 @@
 										src="/src/assets/images/icons/informe-de-recibo.png"
 										alt="ícone recibo"
 										class="menu__list__item__icon"
+									/>
+									<img
+										src="/src/assets/images/icons/recibo-selected.png"
+										alt="ícone recibo"
+										class="menu__list__item__icon--active"
 									/>
 									<p class="menu__list__item__text">Informe de Recibo</p>
 								</a>
@@ -261,7 +272,11 @@
 								</a>
 							</li>
 							<li class="menu__list__item relative">
-								<a href="#" class="menu__list__item__link">
+								<a
+									href="https://blog.mtrek.com.br"
+									class="menu__list__item__link"
+									target="_blank"
+								>
 									<img
 										src="/src/assets/images/icons/Site-209.png"
 										alt="ícone estatísticas"
@@ -313,21 +328,27 @@
 								Nos Siga Nas Redes Sociais
 							</p>
 							<div class="menu__footer__social__icons">
-								<a href="#" target="_blank">
+								<a href="https://www.youtube.com/@mtrek1424" target="_blank">
 									<img
 										src="/src/assets/images/icons/youtube.png"
 										alt="Icone do Youtube"
 									/>
 								</a>
 
-								<a href="#" target="_blank">
+								<a
+									href="https://www.instagram.com/mtrek.oficial/"
+									target="_blank"
+								>
 									<img
 										src="/src/assets/images/icons/instagram.png"
 										alt="Icone do Instagram"
 									/>
 								</a>
 
-								<a href="#" target="_blank">
+								<a
+									href="https://www.facebook.com/mtrek.oficial"
+									target="_blank"
+								>
 									<img
 										src="/src/assets/images/icons/facebook.png"
 										alt="Icone do Facebook"
@@ -579,7 +600,7 @@
 													</button>
 												</div>
 												<button
-													class="button"
+													class="button_disabled"
 													type="submit"
 													id="cadastro-enviarBtn"
 												>
@@ -601,11 +622,7 @@
 											Carregar Documento de Identidade
 										</h2>
 										<span class="close cursor-pointer" onclick="closeModal()">
-											<img
-												class="close-modal"
-												src="/src/assets/images/icons/fechar.png"
-												alt="Fechar"
-											/>
+											<img src="/src/assets/images/icons/fechar.png" alt="" />
 										</span>
 									</div>
 									<div
@@ -677,7 +694,6 @@
 												id="submitDocumentsBtn"
 												class="button_disabled"
 												type="button"
-												disabled
 											>
 												Enviar
 											</button>
@@ -696,11 +712,7 @@
 											class="close cursor-pointer"
 											onclick="closeStep2Modal()"
 										>
-											<img
-												class="close-modal"
-												src="/src/assets/images/icons/fechar.png"
-												alt="Fechar"
-											/>
+											<img src="/src/assets/images/icons/fechar.png" alt="" />
 										</span>
 									</div>
 									<div

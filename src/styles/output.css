@@ -362,6 +362,11 @@
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     cursor: pointer;
   }
+
+  .arrow_header_responsive:hover {
+    scale: 1.05;
+    transition: transform 0.3s ease-in-out;
+  }
 }
 
 /* Estilo para o estado ativo */
@@ -545,6 +550,8 @@
 }
 
 .notification:hover {
+  scale: 1.05;
+  transition: transform 0.3s ease-in-out;
   --tw-translate-y: -0.25rem;
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -1583,6 +1590,14 @@ body {
   /* Permite rolagem vertical no sidebar */
 }
 
+/*Documento*/
+
+.button_valido {
+  background: #5f7336 !important;
+  color: white !important;
+  border: none;
+}
+
 .button_disabled {
   width: 100%;
   border-radius: 0.5rem;
@@ -1780,6 +1795,11 @@ select.rotated {
 
 .play-image {
   z-index: 10;
+}
+
+.cursor-pointer:hover {
+  scale: 1.05;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hover\:scale-105:hover {
