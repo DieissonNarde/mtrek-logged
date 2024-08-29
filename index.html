@@ -167,12 +167,6 @@
 										alt="ícone cadastro"
 										class="menu__list__item__icon"
 									/>
-									<img
-										src="/src/assets/images/icons/cadastro-selected.png"
-										alt="ícone cadastro"
-										class="menu__list__item__icon--active"
-									/>
-
 									<p class="menu__list__item__text">Cadastro</p>
 								</a>
 							</li>
@@ -187,11 +181,6 @@
 										src="/src/assets/images/icons/informe-de-recibo.png"
 										alt="ícone recibo"
 										class="menu__list__item__icon"
-									/>
-									<img
-										src="/src/assets/images/icons/recibo-selected.png"
-										alt="ícone recibo"
-										class="menu__list__item__icon--active"
 									/>
 									<p class="menu__list__item__text">Informe de Recibo</p>
 								</a>
@@ -590,7 +579,7 @@
 													</button>
 												</div>
 												<button
-													class="button_disabled"
+													class="button"
 													type="submit"
 													id="cadastro-enviarBtn"
 												>
@@ -612,7 +601,11 @@
 											Carregar Documento de Identidade
 										</h2>
 										<span class="close cursor-pointer" onclick="closeModal()">
-											<img src="/src/assets/images/icons/fechar.png" alt="" />
+											<img
+												class="close-modal"
+												src="/src/assets/images/icons/fechar.png"
+												alt="Fechar"
+											/>
 										</span>
 									</div>
 									<div
@@ -684,6 +677,7 @@
 												id="submitDocumentsBtn"
 												class="button_disabled"
 												type="button"
+												disabled
 											>
 												Enviar
 											</button>
@@ -702,7 +696,11 @@
 											class="close cursor-pointer"
 											onclick="closeStep2Modal()"
 										>
-											<img src="/src/assets/images/icons/fechar.png" alt="" />
+											<img
+												class="close-modal"
+												src="/src/assets/images/icons/fechar.png"
+												alt="Fechar"
+											/>
 										</span>
 									</div>
 									<div

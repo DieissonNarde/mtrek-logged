@@ -17,7 +17,7 @@
 
 /* Avatar */
 .avatar {
-	@apply flex items-center gap-8 bg-[var(--bg-primary)] w-[25%] lg:w-fit h-full py-4 px-10 text-white font-medium relative z-[];
+	@apply flex items-center gap-8 bg-[var(--bg-primary)] w-[25%] lg:w-fit h-full py-4 px-10 text-white font-medium relative;
 }
 
 .avatar-img {
@@ -29,6 +29,17 @@
 	@apply pr-3 pl-5 lg:pt-5 lg:pb-5 pb-10 overflow-y-scroll h-[calc(100vh-78px)];
 }
 
+/* Animação do Sidebar */
+.menu-hidden {
+	@apply -translate-x-full; /* Sidebar escondido à esquerda */
+	transition: transform 0.3s ease;
+}
+
+.menu-active {
+	@apply translate-x-0; /* Sidebar visível */
+}
+
+/* Menu List */
 .menu__list {
 	@apply flex flex-col justify-center gap-0;
 }
@@ -129,7 +140,7 @@
 /* Sidebar e Header fixos */
 @media (max-width: 1024px) {
 	.menu {
-		@apply fixed w-[300px] pl-5 bg-white z-[1000];
+		@apply fixed w-[300px] pl-5 bg-white z-[1000] menu-hidden; /* Adiciona a classe menu-hidden */
 	}
 
 	#header {

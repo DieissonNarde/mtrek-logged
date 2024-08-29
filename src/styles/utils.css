@@ -23,14 +23,23 @@
 	@apply w-4 h-4 lg:w-7 lg:h-7;
 }
 
+/* Modal */
+.close-modal {
+	@apply hover:transition-all hover:scale-90;
+}
+
 /* Botões */
 .button {
 	@apply bg-[var(--bg-primary)] text-white font-semibold md:font-black text-sm md:text-base py-1 w-full rounded-lg border border-transparent hover:bg-transparent hover:border-[var(--bg-primary)] hover:text-black transition-all duration-200;
 }
 
-.button[disabled],
+.button:disabled,
 #cadastro-recibo[disabled] + label.button {
 	@apply hover:border-transparent cursor-not-allowed;
+}
+
+#cadastro-recibo[disabled] + label.button {
+	@apply hover:text-white;
 }
 
 .button-green {

@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			closeModal();
 		}
 	};
+
+	toggleCadastroSubmitButton();
 });
 
 // Validação dos campos de texto
@@ -100,7 +102,8 @@ function toggleCadastroSubmitButton() {
 
 	// Atualiza o estado do botão com base na validade do formulário
 	submitButton.disabled = !isValid;
-	submitButton.style.background = isValid ? "" : "#D9D9D9";
+	submitButton.style.color = "#000000";
+	submitButton.style.backgroundColor = isValid ? "" : "#D9D9D9";
 	submitButton.style.color = isValid ? "" : "#000000";
 
 	// Atualiza o estado de outros botões de envio, se necessário
@@ -156,7 +159,11 @@ function submitCadastroForm(event) {
 
 	const submitBtn = document.getElementById("cadastro-enviarBtn");
 	const documentsBtn = document.getElementById("loadDocumentsBtn");
+	const billInput = document.getElementById("cadastro-recibo");
 	const billBtn = document.getElementById("loadEnergyBillBtn");
+
+	const frenteInput = document.getElementById("frenteDocumento");
+	const versoInput = document.getElementById("versoDocumento");
 
 	const form = event.target;
 	updateButtonState("cadastro-enviarBtn", false, "Enviando...");
@@ -166,19 +173,32 @@ function submitCadastroForm(event) {
 	simulateBackendOperation(() => {
 		form.reset();
 
+		resetInput(frenteInput, "frenteDocumento");
+		resetInput(versoInput, "versoDocumento");
+		document.getElementById("cadastro-file-name-placeholder").textContent =
+			"Tipos permitidos: .jpg, .png, .pdf, .doc";
+
 		["frenteDocumento", "versoDocumento"].forEach((id) => updateFileName(id));
 
 		openStep2Modal(); // Aqui você deve abrir o próximo passo do seu formulário
 
+		submitBtn.disabled = true;
 		submitBtn.textContent = "Enviar";
+		submitBtn.style.backgroundColor = "";
+		submitBtn.style.color = "";
 
+		documentsBtn.disabled = false;
 		documentsBtn.textContent = "Enviar documento de identidade";
 		documentsBtn.style.background = "";
-		documentsBtn.disabled = false;
+		documentsBtn.style.color = "";
+		documentsBtn.style.border = "";
 
-		billBtn.textContent = "Carregar conta de energia";
+		billInput.disabled = false;
+
 		billBtn.style.background = "";
-		billBtn.disabled = false;
+		billBtn.style.color = "";
+		billBtn.style.border = "";
+		billBtn.textContent = "Carregar conta de energia";
 
 		isCadastroProcessing = false;
 		isDocumentUploaded = false;
@@ -288,7 +308,6 @@ function updateButtonState(buttonId, isEnabled, text = null, color = null) {
 	// Atualiza a cor do botão, se fornecida
 	if (color !== null) {
 		button.style.background = color;
-		button.style.color = "#fff"; // Muda a cor do texto para branco
 	}
 }
 
