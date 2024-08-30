@@ -168,3 +168,61 @@
 .menu__list__item__link.active > .menu__list__item__icon--active {
 	@apply block;
 }
+
+/*Footer*/
+.footer_page {
+	background: #ffddfd;
+}
+
+.footer_page p {
+	font-weight: bold;
+	font-size: 15px;
+}
+.footer-mobile {
+	display: none;
+}
+
+/* @media (max-width: 1291px) {
+	.copy {
+		position: relative;
+		top: -20px;
+	}
+	.container-footer {
+		gap: 0px !important;
+	}
+	.container-footer div img {
+		position: relative;
+		top: 10px;
+	}
+} */
+
+@media (max-width: 1291px) {
+	.copy {
+		position: relative;
+		top: -0px;
+	}
+	.footer_page p,
+	.footer_p_img {
+		gap: 3px !important;
+	}
+}
+
+/* Estilos para telas maiores ou iguais a 1024px */
+@media (max-width: 1289px) {
+	.footer_p_img p {
+		padding-right: 0px;
+	}
+	.copy {
+		position: relative;
+		padding-left: 0px !important;
+	}
+}
+@media (max-width: 1214px) {
+	.copy {
+	}
+}
+@media (max-width: 540px) {
+	.copy {
+		top: 0px !important;
+	}
+}

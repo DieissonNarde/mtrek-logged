@@ -397,6 +397,71 @@
   display: block;
 }
 
+/*Footer*/
+
+.footer_page {
+  background: #ffddfd;
+}
+
+.footer_page p {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.footer-mobile {
+  display: none;
+}
+
+/* @media (max-width: 1291px) {
+	.copy {
+		position: relative;
+		top: -20px;
+	}
+	.container-footer {
+		gap: 0px !important;
+	}
+	.container-footer div img {
+		position: relative;
+		top: 10px;
+	}
+} */
+
+@media (max-width: 1291px) {
+  .copy {
+    position: relative;
+    top: -0px;
+  }
+
+  .footer_page p,
+	.footer_p_img {
+    gap: 3px !important;
+  }
+}
+
+/* Estilos para telas maiores ou iguais a 1024px */
+
+@media (max-width: 1289px) {
+  .footer_p_img p {
+    padding-right: 0px;
+  }
+
+  .copy {
+    position: relative;
+    padding-left: 0px !important;
+  }
+}
+
+@media (max-width: 1214px) {
+  .copy {
+  }
+}
+
+@media (max-width: 540px) {
+  .copy {
+    top: 0px !important;
+  }
+}
+
 /* Classes e Estilos Utilitários */
 
 /* Títulos */
@@ -1264,6 +1329,10 @@ video {
   max-height: 810px;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -1433,6 +1502,11 @@ video {
   padding-right: 0.75rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1456,6 +1530,14 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
 }
 
 .text-center {
