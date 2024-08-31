@@ -12,7 +12,7 @@
 
 /* Header */
 .header {
-	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[998];
+	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[999];
 }
 
 /* Avatar */
@@ -30,10 +30,6 @@
 }
 
 /* Animação do Sidebar */
-.menu-hidden {
-	@apply -translate-x-full; /* Sidebar escondido à esquerda */
-	transition: transform 0.3s ease;
-}
 
 .menu-active {
 	@apply translate-x-0; /* Sidebar visível */
@@ -87,7 +83,7 @@
 
 /* Navegação de Abas */
 .tab__navegation {
-	@apply flex items-center justify-between h-[78px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] absolute top-[-78px] right-0 w-full z-[1000] lg:z-[1] drop-shadow-lg;
+	@apply flex items-center justify-between h-[78px] bg-[var(--bg-secundary)] py-4 px-10 lg:pr-10 lg:pl-[340px] absolute top-[-78px] right-0 w-full z-[99] lg:z-[1] drop-shadow-lg;
 }
 
 .scroll-content {
