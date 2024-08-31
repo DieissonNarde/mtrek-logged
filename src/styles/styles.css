@@ -136,7 +136,7 @@
 /* Sidebar e Header fixos */
 @media (max-width: 1024px) {
 	.menu {
-		@apply fixed w-[300px] pl-5 bg-white z-[1000] menu-hidden; /* Adiciona a classe menu-hidden */
+		@apply fixed w-[300px] pl-5 bg-white z-[1000]; /* Adiciona a classe hidden */
 	}
 
 	#header {
@@ -213,10 +213,10 @@
 		padding-left: 0px !important;
 	}
 }
-@media (max-width: 1214px) {
+/* @media (max-width: 1214px) {
 	.copy {
 	}
-}
+} */
 @media (max-width: 540px) {
 	.copy {
 		top: 0px !important;

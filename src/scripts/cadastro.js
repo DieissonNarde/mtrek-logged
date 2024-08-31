@@ -128,9 +128,9 @@ function toggleCadastroSubmitButton() {
 function updateCadastroFileName(event) {
 	const file = event.target.files[0];
 	const isFileSelected = !!file;
-	const fileName = isFileSelected ?
-		file.name :
-		"Tipos permitidos: .jpg, .png, .pdf, .doc";
+	const fileName = isFileSelected
+		? file.name
+		: "Tipos permitidos: .jpg, .png, .pdf, .doc";
 
 	document.getElementById("cadastro-file-name-placeholder").textContent =
 		fileName;
@@ -166,12 +166,20 @@ function submitCadastroForm(event) {
 	const versoInput = document.getElementById("versoDocumento");
 
 	const form = event.target;
+
+	submitBtn.disabled = true;
+
 	updateButtonState("cadastro-enviarBtn", false, "Enviando...");
 
 	console.log("Dados do Formulário Cadastro:", new FormData(form).entries());
 
 	simulateBackendOperation(() => {
 		form.reset();
+		const fields = ["nome", "sobrenome", "estado", "distribuidora"];
+		fields.forEach((field) => {
+			const el = document.getElementById(field);
+			el.style.borderColor = "";
+		});
 
 		resetInput(frenteInput, "frenteDocumento");
 		resetInput(versoInput, "versoDocumento");
@@ -182,10 +190,12 @@ function submitCadastroForm(event) {
 
 		openStep2Modal(); // Aqui você deve abrir o próximo passo do seu formulário
 
+		submitBtn.classList.remove("button_disabled");
+
 		submitBtn.disabled = true;
 		submitBtn.textContent = "Enviar";
-		submitBtn.style.backgroundColor = "";
-		submitBtn.style.color = "";
+		submitBtn.style.backgroundColor = "#d9d9d9";
+		submitBtn.style.color = "#000";
 
 		documentsBtn.disabled = false;
 		documentsBtn.textContent = "Enviar documento de identidade";
@@ -237,9 +247,9 @@ function updateFileName(inputId) {
 
 function updateSpanAndStyles(inputId, file) {
 	const span = document.getElementById(`${inputId}Name`);
-	const fileName = file ?
-		truncateFileName(file.name) :
-		"Nenhum arquivo selecionado";
+	const fileName = file
+		? truncateFileName(file.name)
+		: "Nenhum arquivo selecionado";
 
 	span.textContent = fileName;
 	span.title = fileName;
@@ -268,7 +278,6 @@ function updateInputStyles(inputId, file) {
 		labelElement.classList.remove("button_valido");
 	}
 }
-
 
 function resetInput(input, inputId) {
 	input.value = "";
@@ -320,7 +329,7 @@ function updateButtonState(buttonId, isEnabled, text = null, color = null) {
 
 function setFieldValidity(el) {
 	if (el) {
-		const isValid = el.value.trim() !== "";
+		const isValid = el.value.trim() !== "" && el.value.length >= 2;
 		el.setCustomValidity(isValid ? "" : "Este campo é obrigatório");
 		el.style.borderColor = isValid ? "#5F7336" : "#D9D9D9";
 	}
