@@ -28,7 +28,7 @@
 
 .header {
   position: relative;
-  z-index: 999;
+  z-index: 1000;
   display: flex;
   height: 78px;
   max-width: -moz-fit-content;
@@ -340,6 +340,11 @@
     width: 300px;
     background-color: var(--bg-primary);
     padding-left: 1.25rem;
+  }
+
+  .header {
+    position: sticky;
+    top: 0px;
   }
 
   .arrow_header_responsive {

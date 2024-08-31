@@ -12,7 +12,7 @@
 
 /* Header */
 .header {
-	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[999];
+	@apply flex items-center h-[78px] max-w-fit relative drop-shadow-lg z-[1000];
 }
 
 /* Avatar */
@@ -141,6 +141,10 @@
 
 	#header {
 		@apply fixed w-[300px] h-[78px] pl-5 bg-[var(--bg-primary)] z-[1000];
+	}
+
+	.header {
+		@apply sticky top-0;
 	}
 
 	.arrow_header_responsive {
