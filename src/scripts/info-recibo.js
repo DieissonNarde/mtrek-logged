@@ -78,20 +78,36 @@ function submitReciboForm(event) {
 		toggleReciboSubmitButton();
 
 		// Reativar o botão se ele for desabilitado após o reset
-		document.getElementById('enviarReciboBtn').disabled = true;
-		document.getElementById('enviarReciboBtn').classList.remove('button_enabled');
-		document.getElementById('enviarReciboBtn').classList.add('button_disabled');
+		const enviarBtn = document.getElementById('enviarReciboBtn');
+		enviarBtn.disabled = true;
+		enviarBtn.classList.remove('button_enabled');
+		enviarBtn.classList.add('button_disabled');
 
 		isReciboProcessing = false;
 	}, 1000);
 }
+
+// Função para definir a data padrão no campo de data de envio
+document.addEventListener("DOMContentLoaded", function () {
+	const dataInput = document.getElementById("data_envio");
+
+	if (dataInput && !dataInput.value) {
+		const today = new Date();
+		const day = String(today.getDate()).padStart(2, '0');
+		const month = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+		const year = today.getFullYear();
+
+		// Formato yyyy-mm-dd (padrão para input type="date")
+		dataInput.value = `${year}-${month}-${day}`;
+	}
+});
 
 // Adiciona os ouvintes de eventos para o reciboForm
 document.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('reciboForm');
 	if (form) {
 		form.addEventListener('input', toggleReciboSubmitButton);
-		document.getElementById('recibo-recibo').addEventListener('change', (e) => updateReciboFileName(e.target));
+		document.getElementById('recibo-distribuidora').addEventListener('change', (e) => updateReciboFileName(e.target));
 		form.addEventListener('submit', submitReciboForm);
 	}
 });
