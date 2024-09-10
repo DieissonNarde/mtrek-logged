@@ -173,8 +173,7 @@ select.rotated {
 /*Cadastro*/
 #frenteImg,
 #versoImg {
-	max-width: 180px;
-	width: 100%;
+	@apply lg:w-[180px] md:w-[140px] w-[105px] h-auto mx-auto;
 }
 
 .play-image {

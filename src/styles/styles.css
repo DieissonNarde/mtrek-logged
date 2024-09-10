@@ -117,7 +117,7 @@
 }
 
 .modal-section {
-	@apply inline-block m-5;
+	@apply inline-block mt-2 mb-3 md:mt-4 md:mb-5 sm:mx-5;
 }
 
 .modal-section input[type="file"] {
@@ -182,20 +182,6 @@
 	display: none;
 }
 
-/* @media (max-width: 1291px) {
-	.copy {
-		position: relative;
-		top: -20px;
-	}
-	.container-footer {
-		gap: 0px !important;
-	}
-	.container-footer div img {
-		position: relative;
-		top: 10px;
-	}
-} */
-
 @media (max-width: 1291px) {
 	.copy {
 		position: relative;
@@ -217,10 +203,7 @@
 		padding-left: 0px !important;
 	}
 }
-/* @media (max-width: 1214px) {
-	.copy {
-	}
-} */
+
 @media (max-width: 540px) {
 	.copy {
 		top: 0px !important;
