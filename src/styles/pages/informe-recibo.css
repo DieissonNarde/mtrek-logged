@@ -1,0 +1,12 @@
+#reciboTableBody span {
+	background: #5f7336;
+	width: 100%;
+	padding-left: 8px;
+	padding-right: 8px;
+	display: inline-flex;
+}
+@media screen and (max-width: 700px) {
+	.section-historico #reciboTable {
+		min-width: 800px !important;
+	}
+}

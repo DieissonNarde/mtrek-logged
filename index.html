@@ -510,25 +510,24 @@
 								<div class="flex gap-3 justify-between mt-6">
 									<form id="reciboForm" onsubmit="submitReciboForm(event)" enctype="multipart/form-data"
 										class="w-full lg:w-1/2 flex flex-col gap-3">
-										<!-- Data de Envio e Distribuidora -->
+										<!-- Valor do Recibo e Distribuidora -->
 										<div class="flex flex-col gap-3">
-											<label for="data_envio" class="font-semibold">Data de Envio</label>
-											<input type="date" id="data_envio" name="data_envio" required class="form-input" />
+											<label for="valor_recibo" class="font-semibold">Valor do Recibo</label>
+											<input type="number" id="valor_recibo" name="valor_recibo" required class="form-input"
+												placeholder="Insira o valor do recibo" min="0" step="0.01" />
 										</div>
 										<div class="flex flex-col gap-3">
 											<label for="recibo-distribuidora" class="font-semibold">Distribuidora</label>
 											<select id="recibo-distribuidora" name="distribuidora" required class="form-select select-toggle">
-												<option value="" disabled selected>
-													Selecionar a distribuidora de energia
-												</option>
-												<option value="distribuidora1">Cemig</option>
-												<option value="distribuidora2">Coelba</option>
-												<option value="distribuidora3">CPFL</option>
-												<option value="distribuidora4">Enel</option>
-												<option value="distribuidora5">Energisa</option>
-												<option value="distribuidora6">Equatorial</option>
-												<option value="distribuidora7">Light</option>
-												<option value="distribuidora8">Elekytro</option>
+												<option value="" disabled selected>Selecionar a distribuidora de energia</option>
+												<option value="Cemig">Cemig</option>
+												<option value="Coelba">Coelba</option>
+												<option value="CPFL">CPFL</option>
+												<option value="Enel">Enel</option>
+												<option value="Energisa">Energisa</option>
+												<option value="Equatorial">Equatorial</option>
+												<option value="Light">Light</option>
+												<option value="Elekytro">Elekytro</option>
 											</select>
 										</div>
 										<!-- Recibo -->
@@ -543,9 +542,8 @@
 													<span id="recibo-file-btn-text">Carregar Recibo</span>
 												</label>
 											</div>
-											<button type="submit" id="enviarReciboBtn" class="button_disabled" disabled>
-												Enviar Recibo
-											</button>
+											<button type="submit" id="enviarReciboBtn" class="button_disabled" disabled>Enviar
+												Recibo</button>
 										</div>
 									</form>
 
@@ -553,6 +551,46 @@
 								</div>
 							</div>
 						</div>
+						<section class="section-historico">
+							<div class="p-6 max-w-7xl mx-auto">
+								<h2 class="text-2xl sm:text-3xl lg:text-4xl font-black mb-4 text-left">Histórico de Envios de Recibos
+								</h2>
+
+								<!-- Tabela Responsiva -->
+								<div class="overflow-x-auto">
+									<table id="reciboTable" class="w-full border-separate border-spacing-2">
+										<thead>
+											<tr class="text-white">
+												<th class="py-2 px-4 text-center bg-primary-purple border rounded-2xl">Distribuidora</th>
+												<th class="py-2 px-4 text-center bg-primary-purple border rounded-2xl">Data</th>
+												<th class="py-2 px-4 text-center bg-primary-purple border rounded-2xl">Valor da Conta</th>
+												<th class="py-2 px-4 text-center bg-primary-purple border rounded-2xl">Status</th>
+											</tr>
+										</thead>
+										<tbody id="reciboTableBody">
+											<!-- Inserir dados dos recibos aqui -->
+										</tbody>
+									</table>
+									<p id="noDataMessage" class=" text-center text-gray-500 mt-4">Não há histórico registrado</p>
+
+								</div>
+
+
+								<!-- Botão "Ver Mais" -->
+								<button id="verMaisBtn"
+									class="hidden flex items-center justify-center w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 py-2 px-4 rounded font-black">
+									<img src="src/assets/images/icons/Mais-itens-8 1.png" class="w-8 sm:w-10" alt="Ícone Ver Mais">
+									<span class="ml-2">Ver Mais</span>
+								</button>
+
+								<!-- Botão "Ver Menos" -->
+								<button id="verMenosBtn"
+									class="hidden flex items-center justify-center w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 py-2 px-4 rounded font-black">
+									<img src="src/assets/images/icons/Mostrar menos-8.png" class="w-8 sm:w-10" alt="Ícone Ver Menos">
+									<span class="ml-2">Ver Menos</span>
+								</button>
+							</div>
+						</section>
 						<section class="container mx-auto flex flex-col lg:flex-row mb-10 rounded-lg shadow-md"
 							style="background-color: #5f7336">
 							<div class="lg:w-1/2 flex items-center justify-center order-2 lg:order-1">
@@ -601,12 +639,12 @@
 						</section>
 					</div>
 				</main>
-				<footer class="flex flex-wrap items-center justify-center px-5 footer_page">
+				<footer class="flex flex-wrap items-center justify-center px-8 footer_page">
 					<!-- <p class="mobile-none">Mtrek, o jeitinho Brasileiro de Economizar, Ganhar e Realizar.</p>
 					<img src="src/assets/images/icons/ICONE MTREK - vazado - preto 1.png" alt="Mktrek" class="w-20 mobile-none">
 					<p class="footer_page_p2 mobile-none">Copyright © 2024 Mtrek - Todos os direitos reservados.</p> -->
 
-					<div class="flex flex-wrap justify-between container-footer px-4">
+					<div class="flex flex-wrap justify-center  container-footer px-4 mb-2">
 						<div class="flex items-center justify-between footer_p_img">
 							<p class="pr-10">
 								Mtrek, o jeitinho Brasileiro de Economizar, Ganhar e Realizar.
