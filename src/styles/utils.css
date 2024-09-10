@@ -55,3 +55,7 @@
 .notification {
 	@apply w-7 h-7 lg:w-9 lg:h-9 cursor-pointer transition-all duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:animate-pulse;
 }
+
+.fechar {
+	@apply hover:scale-105 transition-all duration-200 ease-in-out;
+}

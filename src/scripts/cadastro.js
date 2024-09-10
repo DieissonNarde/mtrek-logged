@@ -159,6 +159,7 @@ function submitCadastroForm(event) {
 
 	const submitBtn = document.getElementById("cadastro-enviarBtn");
 	const documentsBtn = document.getElementById("loadDocumentsBtn");
+	const submitDocumentsBtn = document.getElementById("submitDocumentsBtn");
 	const billInput = document.getElementById("cadastro-recibo");
 	const billBtn = document.getElementById("loadEnergyBillBtn");
 
@@ -196,6 +197,10 @@ function submitCadastroForm(event) {
 		submitBtn.textContent = "Enviar";
 		submitBtn.style.backgroundColor = "#d9d9d9";
 		submitBtn.style.color = "#000";
+
+		submitDocumentsBtn.disabled = true;
+		submitDocumentsBtn.classList.remove("button_enabled");
+		submitDocumentsBtn.classList.add("button_disabled");
 
 		documentsBtn.disabled = false;
 		documentsBtn.textContent = "Enviar documento de identidade";
