@@ -1,11 +1,15 @@
 @import "./styles.css";
 @import "./utils.css";
+@import "./pages/informe-recibo.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Variáveis CSS */
+.overflow-x-auto {
+	
+}
 :root {
 	--bg-primary: #83217c;
 	--bg-secundary: #a32d9b;
@@ -51,20 +55,20 @@ body {
 }
 
 .button_enabled {
-	width: 100%;
-	border-radius: 0.5rem;
-	border-width: 1px;
-	border-color: transparent;
-	background-color: #83217c;
-	color: #fff;
-	cursor: pointer;
-	transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+	width: 100% !important;
+	border-radius: 0.5rem !important;
+	border-width: 1px !important;
+	border-color: transparent !important;
+	background-color: #83217c !important;
+	color: #fff !important;
+	cursor: pointer !important;
+	transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .button_enabled:hover {
-	background-color: transparent;
-	border-color: #83217c;
-	color: black;
+	background-color: transparent !important;
+	border-color: #83217c !important;
+	color: black !important;
 }
 
 .button:disabled:hover {
