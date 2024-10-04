@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Dashboard | Mtrek</title>
-	<link rel="stylesheet" href="/src/styles/output.css" />
+	<link rel="stylesheet" href="./src/styles/output.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
@@ -16,19 +16,19 @@
 <body>
 	<header class="header">
 		<div class="avatar hidden lg:flex" id="header">
-			<img src="/src/assets/images/avatar.webp" alt="Imagem de perfil do usuário" class="avatar-img" />
+			<img src="./src/assets/images/avatar.webp" alt="Imagem de perfil do usuário" class="avatar-img" />
 			<div class="avatar__profile">
 				<h2 class="avatar__profile__greetings title-fblack text-base">
 					Olá, usuário!
 				</h2>
 				<a class="avatar__profile__link flex items-center gap-1" href="#">
 					<p class="text-sm">Seu perfil</p>
-					<img src="/src/assets/images/icons/mostrar-menu.png" alt="ícone seta para a direita"
+					<img src="./src/assets/images/icons/mostrar-menu.png" alt="ícone seta para a direita"
 						class="arrow rounded-full" />
 				</a>
 				<p class="id text-sm">ID: 143</p>
 			</div>
-			<img src="/src/assets/images/icons/mostrar-menu.png" alt="arrow" width="43px" height="43px"
+			<img src="./src/assets/images/icons/mostrar-menu.png" alt="arrow" width="43px" height="43px"
 				class="arrow_header_responsive block lg:hidden" />
 		</div>
 	</header>
@@ -39,35 +39,35 @@
 				<ul class="menu__list">
 					<li class="menu__list__item relative">
 						<a href="#" class="menu__list__item__link">
-							<img src="/src/assets/images/icons/meu-negocio.png" alt="ícone home" class="menu__list__item__icon" />
+							<img src="./src/assets/images/icons/meu-negocio.png" alt="ícone home" class="menu__list__item__icon" />
 							<p class="menu__list__item__text">Meu Negócio</p>
 						</a>
 						<hr class="hr" />
 					</li>
 					<li class="menu__list__item relative">
 						<a href="#" class="menu__list__item__link active">
-							<img src="/src/assets/images/icons/expanda-seu-negocio.png" alt="ícone dashboard"
+							<img src="./src/assets/images/icons/expanda-seu-negocio.png" alt="ícone dashboard"
 								class="menu__list__item__icon" />
 							<p class="menu__list__item__text">Expanda Seu Negócio</p>
 						</a>
 					</li>
 					<li class="menu__list__item relative">
 						<a href="#" class="menu__list__item__link">
-							<img src="/src/assets/images/icons/minha-rede.png" alt="ícone estatísticas"
+							<img src="./src/assets/images/icons/minha-rede.png" alt="ícone estatísticas"
 								class="menu__list__item__icon" />
 							<p class="menu__list__item__text">Minha Rede</p>
 						</a>
 					</li>
 					<li class="menu__list__item relative">
 						<a href="#" class="menu__list__item__link">
-							<img src="/src/assets/images/icons/relatorio.png" alt="ícone estatísticas"
+							<img src="./src/assets/images/icons/relatorio.png" alt="ícone estatísticas"
 								class="menu__list__item__icon" />
 							<p class="menu__list__item__text">Relatório de Transações</p>
 						</a>
 					</li>
 					<li class="menu__list__item relative">
 						<a href="#" class="menu__list__item__link">
-							<img src="/src/assets/images/icons/carteira-de-negocio.png" alt="ícone estatísticas"
+							<img src="./src/assets/images/icons/carteira-de-negocio.png" alt="ícone estatísticas"
 								class="menu__list__item__icon" />
 							<p class="menu__list__item__text">Carteira de Negócios</p>
 						</a>
@@ -79,27 +79,28 @@
 						</h2>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/informe-de-compra.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/informe-de-compra.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Informe de Compra</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/lojas.png" alt="ícone estatísticas" class="menu__list__item__icon" />
+								<img src="./src/assets/images/icons/lojas.png" alt="ícone estatísticas"
+									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Lojas</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/cupons.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/cupons.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Cupons</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/promocoes.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/promocoes.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Promoções</p>
 							</a>
@@ -112,7 +113,7 @@
 						</h2>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link" data-target="cadastro" aria-controls="cadastro">
-								<img src="/src/assets/images/icons/cadastro.png" alt="ícone cadastro" class="menu__list__item__icon" />
+								<img src="./src/assets/images/icons/cadastro.png" alt="ícone cadastro" class="menu__list__item__icon" />
 
 								<p class="menu__list__item__text">Cadastro</p>
 							</a>
@@ -120,7 +121,7 @@
 						<li class="menu__list__item relative">
 							<a href="informe-de-recibo" class="menu__list__item__link" data-target="informe-de-recibo"
 								aria-controls="informe-de-recibo">
-								<img src="/src/assets/images/icons/informe-de-recibo.png" alt="ícone recibo"
+								<img src="./src/assets/images/icons/informe-de-recibo.png" alt="ícone recibo"
 									class="menu__list__item__icon" />
 
 								<p class="menu__list__item__text">Informe de Recibo</p>
@@ -129,14 +130,14 @@
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link" data-target="conta-bancaria" aria-controls="conta-bancaria">
-								<img src="/src/assets/images/icons/conta-bancaria.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/conta-bancaria.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Conta Bancária</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link" data-target="regulamento" aria-controls="regulamento">
-								<img src="/src/assets/images/icons/regulamento.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/regulamento.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Regulamento</p>
 							</a>
@@ -145,14 +146,14 @@
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link" data-target="material-de-marketing"
 								aria-controls="material-de-marketing">
-								<img src="/src/assets/images/icons/material-de-marketing.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/material-de-marketing.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Material de Marketing</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link" data-target="treinamento" aria-controls="treinamento">
-								<img src="/src/assets/images/icons/treinamento.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/treinamento.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Treinamento</p>
 							</a>
@@ -162,35 +163,35 @@
 					<ul class="geral-menu">
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/cadastro.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/cadastro.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Seu Perfil</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="https://blog.mtrek.com.br" class="menu__list__item__link" target="_blank">
-								<img src="/src/assets/images/icons/Site-209.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/Site-209.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Blog</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/meu-id.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/meu-id.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Meu ID</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/central-de-ajuda.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/central-de-ajuda.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Central de Ajuda</p>
 							</a>
 						</li>
 						<li class="menu__list__item relative">
 							<a href="#" class="menu__list__item__link">
-								<img src="/src/assets/images/icons/encerrar-sessao.png" alt="ícone estatísticas"
+								<img src="./src/assets/images/icons/encerrar-sessao.png" alt="ícone estatísticas"
 									class="menu__list__item__icon" />
 								<p class="menu__list__item__text">Encerrar Sessão</p>
 							</a>
@@ -198,22 +199,22 @@
 					</ul>
 				</ul>
 				<footer class="menu__footer">
-					<img class="menu__footer__logo" src="/src/assets/logo.png" alt="Logo da Mtrek Cashback" />
+					<img class="menu__footer__logo" src="./src/assets/logo.png" alt="Logo da Mtrek Cashback" />
 					<div class="menu__footer__social">
 						<p class="menu__footer__social__cta">
 							Nos Siga Nas Redes Sociais
 						</p>
 						<div class="menu__footer__social__icons">
 							<a href="https://www.youtube.com/@mtrek1424" target="_blank">
-								<img src="/src/assets/images/icons/youtube.png" alt="Icone do Youtube" />
+								<img src="./src/assets/images/icons/youtube.png" alt="Icone do Youtube" />
 							</a>
 
 							<a href="https://www.instagram.com/mtrek.oficial/" target="_blank">
-								<img src="/src/assets/images/icons/instagram.png" alt="Icone do Instagram" />
+								<img src="./src/assets/images/icons/instagram.png" alt="Icone do Instagram" />
 							</a>
 
 							<a href="https://www.facebook.com/mtrek.oficial" target="_blank">
-								<img src="/src/assets/images/icons/facebook.png" alt="Icone do Facebook" />
+								<img src="./src/assets/images/icons/facebook.png" alt="Icone do Facebook" />
 							</a>
 						</div>
 					</div>
@@ -225,17 +226,18 @@
 			<div class="tab__navegation">
 				<!-- Adicionar navegação das rotas aqui -->
 				<div class="flex items-center gap-2 lg:gap-3">
-					<img src="/src/assets/images/icons/Menu - 258 1.png" class="menu_responsivo block lg:hidden cursor-pointer" />
+					<img src="./src/assets/images/icons/Menu - 258 1.png"
+						class="menu_responsivo block lg:hidden cursor-pointer" />
 					<h1 class="navegation__title">Mercado Livre de Energia</h1>
-					<img src="/src/assets/images/icons/seta-direita.png" alt="seta de navegação para a direita" class="arrow" />
+					<img src="./src/assets/images/icons/seta-direita.png" alt="seta de navegação para a direita" class="arrow" />
 					<h1 class="navegation__title">Cadastro</h1>
 				</div>
 				<div class="flex gap-2">
 					<button>
-						<img src="/src/assets/images/icons/Notificação_5-8.png" alt="Notificação" class="notification" />
+						<img src="./src/assets/images/icons/Notificação_5-8.png" alt="Notificação" class="notification" />
 					</button>
 					<button class="bg-gray-700/20 py-1 px-3 items-center rounded-lg hidden lg:flex">
-						<img src="/src/assets/images/icons/central-de-ajuda-branco.png" alt="Ajuda" class="w-6 h-6" />
+						<img src="./src/assets/images/icons/central-de-ajuda-branco.png" alt="Ajuda" class="w-6 h-6" />
 						<p class="text-sm font-bold text-white">Ajuda</p>
 					</button>
 				</div>
@@ -244,10 +246,10 @@
 			<div class="scroll-content">
 				<main class="tab">
 					<div class="mx-auto">
-						<img class="hidden lg:block rounded-3xl" src="/src/assets/images/banners/mercador-de-energia-banner-2.jpg"
+						<img class="hidden lg:block rounded-3xl" src="./src/assets/images/banners/mercador-de-energia-banner-2.jpg"
 							alt="Banner sobre o mercado livre de energia" />
 						<img class="block lg:hidden rounded-3xl max-h-[810px]"
-							src="/src/assets/images/banners/mercado-de-energia-mobile.jpg" alt="Banner mobile" />
+							src="./src/assets/images/banners/mercado-de-energia-mobile.jpg" alt="Banner mobile" />
 					</div>
 					<div class="tab__content flex-col-reverse lg:flex-row">
 						<!-- Adicionar conteúdo das rotas aqui -->
@@ -259,7 +261,7 @@
 							</header>
 							<div
 								class="bg-white drop-shadow-lg rounded-[0px_0px_20px_20px] items-center flex justify-center p-5 h-[545px]">
-								<img src="/src/assets/images/banners/mercado-de-energia-mobile.png" alt="Play Video"
+								<img src="./src/assets/images/banners/mercado-de-energia-mobile.png" alt="Play Video"
 									class="play-image cursor-pointer w-80 hover:scale-105 transition-all" onclick="showVideo()" />
 								<iframe id="video" src="https://www.youtube.com/embed/p8ASfVQ7Jhw?si=AsSA-p2KXw3GYkOH&amp;start=1"
 									title="YouTube video player" frameborder="0"
@@ -385,7 +387,7 @@
 										Carregar Documento de Identidade
 									</h2>
 									<span class="close cursor-pointer" onclick="closeModal()">
-										<img src="/src/assets/images/icons/fechar.png" alt="" />
+										<img src="./src/assets/images/icons/fechar.png" alt="" />
 									</span>
 								</div>
 								<div class="modal-body bg-[#fefefe] py-6 px-10 rounded-b-[20px]">
@@ -396,7 +398,7 @@
 									</p>
 									<form id="documentForm">
 										<div class="modal-section mt-4 mb-5">
-											<img id="frenteImg" src="/src/assets/images/icons/FRENTE-100.jpg" alt="Imagem Frente"
+											<img id="frenteImg" src="./src/assets/images/icons/FRENTE-100.jpg" alt="Imagem Frente"
 												class="rounded-lg mb-4" style="border: 8px solid #d9d9d9" />
 											<input type="file" id="frenteDocumento" name="frenteDocumento" accept=".jpg,.png,.pdf,.doc"
 												onchange="updateFileName('frenteDocumento')" />
@@ -406,7 +408,7 @@
 												title="Nenhum arquivo selecionado">Nenhum arquivo selecionado</span>
 										</div>
 										<div class="modal-section mt-4 mb-5">
-											<img id="versoImg" class="rounded-lg mb-4" src="/src/assets/images/icons/VERSO-100.jpg"
+											<img id="versoImg" class="rounded-lg mb-4" src="./src/assets/images/icons/VERSO-100.jpg"
 												alt="Imagem Verso" style="border: 8px solid #d9d9d9" />
 											<input type="file" id="versoDocumento" name="versoDocumento" accept=".jpg,.png,.pdf,.doc"
 												onchange="updateFileName('versoDocumento')" />
@@ -428,7 +430,7 @@
 								<div class="article__header flex justify-between items-center max-w-[600px] mx-auto">
 									<h2 class="title-fblack">Informações salvas</h2>
 									<span class="close cursor-pointer" onclick="closeStep2Modal()">
-										<img src="/src/assets/images/icons/fechar.png" alt="" />
+										<img src="./src/assets/images/icons/fechar.png" alt="" />
 									</span>
 								</div>
 								<div class="modal-body bg-[#fefefe] py-6 px-10 rounded-b-[20px]">
@@ -455,7 +457,7 @@
 							<p class="pr-10">
 								Mtrek, o jeitinho Brasileiro de Economizar, Ganhar e Realizar.
 							</p>
-							<img src="src/assets/images/icons/ICONE MTREK - vazado - preto 1.png" alt="Mktrek" class="w-20" />
+							<img src="./src/assets/images/icons/ICONE MTREK - vazado - preto 1.png" alt="Mktrek" class="w-20" />
 						</div>
 						<p class="pl-10 flex justify-center items-center copy">
 							Copyright © 2024 Mtrek - Todos os direitos reservados.
@@ -469,17 +471,18 @@
 			<div class="tab__navegation">
 				<!-- Adicionar navegação das rotas aqui -->
 				<div class="flex items-center gap-2 lg:gap-3">
-					<img src="/src/assets/images/icons/Menu - 258 1.png" class="menu_responsivo block lg:hidden cursor-pointer" />
+					<img src="./src/assets/images/icons/Menu - 258 1.png"
+						class="menu_responsivo block lg:hidden cursor-pointer" />
 					<h1 class="navegation__title">Mercado Livre de Energia</h1>
-					<img src="/src/assets/images/icons/seta-direita.png" alt="seta de navegação para a direita" class="arrow" />
+					<img src="./src/assets/images/icons/seta-direita.png" alt="seta de navegação para a direita" class="arrow" />
 					<h1 class="navegation__title">Recibo</h1>
 				</div>
 				<div class="flex gap-2">
 					<button>
-						<img src="/src/assets/images/icons/Notificação_5-8.png" alt="Notificação" class="notification" />
+						<img src="./src/assets/images/icons/Notificação_5-8.png" alt="Notificação" class="notification" />
 					</button>
 					<button class="bg-gray-700/20 py-1 px-3 items-center rounded-lg hidden lg:flex">
-						<img src="/src/assets/images/icons/central-de-ajuda-branco.png" alt="Ajuda" class="w-6 h-6" />
+						<img src="./src/assets/images/icons/central-de-ajuda-branco.png" alt="Ajuda" class="w-6 h-6" />
 						<p class="text-sm font-bold text-white">Ajuda</p>
 					</button>
 				</div>
@@ -547,7 +550,7 @@
 										</div>
 									</form>
 
-									<img class="hidden lg:block mr-10" src="/src/assets/images/recibo.png" alt="Recibo" />
+									<img class="hidden lg:block mr-10" src="./src/assets/images/recibo.png" alt="Recibo" />
 								</div>
 							</div>
 						</div>
@@ -579,14 +582,14 @@
 								<!-- Botão "Ver Mais" -->
 								<button id="verMaisBtn"
 									class="hidden flex items-center justify-center w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 py-2 px-4 rounded font-black">
-									<img src="src/assets/images/icons/Mais-itens-8 1.png" class="w-8 sm:w-10" alt="Ícone Ver Mais">
+									<img src="./src/assets/images/icons/Mais-itens-8 1.png" class="w-8 sm:w-10" alt="Ícone Ver Mais">
 									<span class="ml-2">Ver Mais</span>
 								</button>
 
 								<!-- Botão "Ver Menos" -->
 								<button id="verMenosBtn"
 									class="hidden flex items-center justify-center w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 py-2 px-4 rounded font-black">
-									<img src="src/assets/images/icons/Mostrar menos-8.png" class="w-8 sm:w-10" alt="Ícone Ver Menos">
+									<img src="./src/assets/images/icons/Mostrar menos-8.png" class="w-8 sm:w-10" alt="Ícone Ver Menos">
 									<span class="ml-2">Ver Menos</span>
 								</button>
 							</div>
@@ -594,7 +597,7 @@
 						<section class="container mx-auto flex flex-col lg:flex-row mb-10 rounded-lg shadow-md"
 							style="background-color: #5f7336">
 							<div class="lg:w-1/2 flex items-center justify-center order-2 lg:order-1">
-								<img src="/src/assets/images/medium-shot-happy-friends-city.png" alt="Amigos felizes na cidade"
+								<img src="./src/assets/images/medium-shot-happy-friends-city.png" alt="Amigos felizes na cidade"
 									class="h-full object-cover lg:rounded-l-lg lg:rounded-b-none rounded-b-lg" />
 							</div>
 							<div class="lg:w-1/2 flex items-center justify-center order-1 lg:order-2 px-6 py-10">
@@ -614,19 +617,19 @@
 									<ul class="text-lg flex flex-col gap-2 text-white">
 										<h2 class="text-2xl">Por que Compartilhar a Mtrek?</h2>
 										<li class="flex items-center">
-											<img src="/src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
+											<img src="./src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
 												alt="Ícone de aprovação" />Economia Adicional
 										</li>
 										<li class="flex items-center">
-											<img src="/src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
+											<img src="./src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
 												alt="Ícone de aprovação" />Renda Extra
 										</li>
 										<li class="flex items-center">
-											<img src="/src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
+											<img src="./src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
 												alt="Ícone de aprovação" />Sustentabilidade
 										</li>
 										<li class="flex items-center">
-											<img src="/src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
+											<img src="./src/assets/images/icons/Aprovado ou Selecionado_4-8 8.png" class="mr-2"
 												alt="Ícone de aprovação" />Benefícios Exclusivos
 										</li>
 									</ul>
@@ -649,7 +652,7 @@
 							<p class="pr-10">
 								Mtrek, o jeitinho Brasileiro de Economizar, Ganhar e Realizar.
 							</p>
-							<img src="src/assets/images/icons/ICONE MTREK - vazado - preto 1.png" alt="Mktrek" class="w-20" />
+							<img src="./src/assets/images/icons/ICONE MTREK - vazado - preto 1.png" alt="Mktrek" class="w-20" />
 						</div>
 						<p class="pl-10 flex justify-center items-center copy">
 							Copyright © 2024 Mtrek - Todos os direitos reservados.
@@ -662,8 +665,8 @@
 	</div>
 </body>
 
-<script src="/src/scripts/main.js"></script>
-<script src="/src/scripts/info-recibo.js"></script>
-<script src="/src/scripts/cadastro.js"></script>
+<script src="./src/scripts/main.js"></script>
+<script src="./src/scripts/info-recibo.js"></script>
+<script src="./src/scripts/cadastro.js"></script>
 
 </html>
